@@ -132,7 +132,7 @@ namespace ExamPapers
             if(e.ColumnIndex == 0)
             {
                 //Delete
-                if (MessageBox.Show("Are you want to delete paper record?")==DialogResult.OK){
+                if (MessageBox.Show("Are you want to delete paper record?","Information",MessageBoxButtons.YesNoCancel,MessageBoxIcon.Information)==DialogResult.Yes){
                     DbPaper.DeletePaper(dtDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString());
                     Display();
                 }
