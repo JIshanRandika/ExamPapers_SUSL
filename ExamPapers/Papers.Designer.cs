@@ -48,6 +48,7 @@ namespace ExamPapers
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.Update = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
@@ -89,7 +90,7 @@ namespace ExamPapers
             // 
             // Save
             // 
-            this.Save.Location = new System.Drawing.Point(220, 149);
+            this.Save.Location = new System.Drawing.Point(252, 264);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(94, 29);
             this.Save.TabIndex = 4;
@@ -106,7 +107,7 @@ namespace ExamPapers
             this.Column3,
             this.Column4,
             this.Column5});
-            this.dtDataGridView.Location = new System.Drawing.Point(80, 196);
+            this.dtDataGridView.Location = new System.Drawing.Point(112, 311);
             this.dtDataGridView.Name = "dtDataGridView";
             this.dtDataGridView.RowHeadersWidth = 51;
             this.dtDataGridView.RowTemplate.Height = 29;
@@ -202,7 +203,7 @@ namespace ExamPapers
             // 
             // Update
             // 
-            this.Update.Location = new System.Drawing.Point(361, 149);
+            this.Update.Location = new System.Drawing.Point(393, 264);
             this.Update.Name = "Update";
             this.Update.Size = new System.Drawing.Size(94, 29);
             this.Update.TabIndex = 6;
@@ -210,11 +211,20 @@ namespace ExamPapers
             this.Update.UseVisualStyleBackColor = true;
             this.Update.Click += new System.EventHandler(this.Update_Click);
             // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(568, 278);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(223, 27);
+            this.txtSearch.TabIndex = 7;
+            this.txtSearch.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // Papers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1116, 518);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.Update);
             this.Controls.Add(this.dtDataGridView);
             this.Controls.Add(this.Save);
@@ -250,5 +260,6 @@ namespace ExamPapers
         private System.Windows.Forms.DataGridViewButtonColumn Column5;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
         private System.Windows.Forms.Button Update;
+        private System.Windows.Forms.TextBox txtSearch;
     }
 }

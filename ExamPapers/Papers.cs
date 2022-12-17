@@ -111,5 +111,10 @@ namespace ExamPapers
             Clear();
             Display();
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            DbPaper.DisplayAndSearch("SELECT ID, Name, Description FROM paper WHERE Name LIKE '%"+txtSearch.Text+"%'",dtDataGridView);
+        }
     }
 }
