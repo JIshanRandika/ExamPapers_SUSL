@@ -30,11 +30,22 @@ namespace ExamPapers
 
         public static void AddPaper(Paper paper)
         {
-            string sql = "INSERT INTO paper VALUES(NULL, @Name, @Description)";
+            string sql = "INSERT INTO paper VALUES(NULL, @paperSetCode, @subjectCode, @subjectName, @medium, @faculty, @department, @semester, @batchName, @date, @rowName, @columnName, @side, @year)";
             MySqlConnection con = GetConnection();
             MySqlCommand cmd = new MySqlCommand(sql, con);
-            cmd.Parameters.Add("@Name", MySqlDbType.VarChar).Value = paper.PaperName;
-            cmd.Parameters.Add("@Description", MySqlDbType.VarChar).Value = paper.Description;
+            cmd.Parameters.Add("@paperSetCode", MySqlDbType.VarChar).Value = paper.paperSetCode;
+            cmd.Parameters.Add("@subjectCode", MySqlDbType.VarChar).Value = paper.subjectCode;
+            cmd.Parameters.Add("@subjectName", MySqlDbType.VarChar).Value = paper.subjectName;
+            cmd.Parameters.Add("@medium", MySqlDbType.VarChar).Value = paper.medium;
+            cmd.Parameters.Add("@faculty", MySqlDbType.VarChar).Value = paper.faculty;
+            cmd.Parameters.Add("@department", MySqlDbType.VarChar).Value = paper.department;
+            cmd.Parameters.Add("@semester", MySqlDbType.VarChar).Value = paper.semester;
+            cmd.Parameters.Add("@batchName", MySqlDbType.VarChar).Value = paper.batchName;
+            cmd.Parameters.Add("@date", MySqlDbType.VarChar).Value = paper.date;
+            cmd.Parameters.Add("@rowName", MySqlDbType.VarChar).Value = paper.rowName;
+            cmd.Parameters.Add("@columnName", MySqlDbType.VarChar).Value = paper.columnName;
+            cmd.Parameters.Add("@side", MySqlDbType.VarChar).Value = paper.side;
+            cmd.Parameters.Add("@year", MySqlDbType.VarChar).Value = paper.year;
 
             try
             {
@@ -51,12 +62,36 @@ namespace ExamPapers
 
         public static void UpdatePaper(Paper paper, string id)
         {
-            string sql = "UPDATE paper SET Name = @Name, Description = @Description WHERE ID=@ID";
+            string sql = "UPDATE paper SET paperSetCode = @paperSetCode," +
+                "subjectCode = @subjectCode," +
+                "subjectName = @subjectName," +
+                "medium = @medium," +
+                "faculty = @faculty," +
+                "department = @department," +
+                "semester = @semester," +
+                "batchName = @batchName," +
+                "date = @date," +
+                "rowName = @rowName," +
+                "columnName = @columnName," +
+                "side = @side," +
+                "year = @year" +
+                " WHERE ID=@ID";
             MySqlConnection con = GetConnection();
             MySqlCommand cmd = new MySqlCommand(sql, con);
             cmd.CommandType = System.Data.CommandType.Text;
-            cmd.Parameters.Add("@Name",MySqlDbType.VarChar).Value = paper.PaperName;
-            cmd.Parameters.Add("@Description", MySqlDbType.VarChar).Value = paper.Description;
+            cmd.Parameters.Add("@paperSetCode", MySqlDbType.VarChar).Value = paper.paperSetCode;
+            cmd.Parameters.Add("@subjectCode", MySqlDbType.VarChar).Value = paper.subjectCode;
+            cmd.Parameters.Add("@subjectName", MySqlDbType.VarChar).Value = paper.subjectName;
+            cmd.Parameters.Add("@medium", MySqlDbType.VarChar).Value = paper.medium;
+            cmd.Parameters.Add("@faculty", MySqlDbType.VarChar).Value = paper.faculty;
+            cmd.Parameters.Add("@department", MySqlDbType.VarChar).Value = paper.department;
+            cmd.Parameters.Add("@semester", MySqlDbType.VarChar).Value = paper.semester;
+            cmd.Parameters.Add("@batchName", MySqlDbType.VarChar).Value = paper.batchName;
+            cmd.Parameters.Add("@date", MySqlDbType.VarChar).Value = paper.date;
+            cmd.Parameters.Add("@rowName", MySqlDbType.VarChar).Value = paper.rowName;
+            cmd.Parameters.Add("@columnName", MySqlDbType.VarChar).Value = paper.columnName;
+            cmd.Parameters.Add("@side", MySqlDbType.VarChar).Value = paper.side;
+            cmd.Parameters.Add("@year", MySqlDbType.VarChar).Value = paper.year;
             cmd.Parameters.Add("@ID", MySqlDbType.VarChar).Value = id;
             try
             {

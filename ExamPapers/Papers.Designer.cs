@@ -33,15 +33,9 @@ namespace ExamPapers
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Save = new System.Windows.Forms.Button();
             this.dtDataGridView = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.Update = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -55,20 +49,22 @@ namespace ExamPapers
             this.paperSetCode = new System.Windows.Forms.TextBox();
             this.subjectCode = new System.Windows.Forms.TextBox();
             this.subjectName = new System.Windows.Forms.TextBox();
-            this.department = new System.Windows.Forms.TextBox();
-            this.semester = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.batchName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.row = new System.Windows.Forms.TextBox();
-            this.column = new System.Windows.Forms.TextBox();
+            this.rowName = new System.Windows.Forms.TextBox();
+            this.columnName = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.side = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.date = new System.Windows.Forms.DateTimePicker();
             this.cmbMedium = new System.Windows.Forms.ComboBox();
             this.cmbfaculty = new System.Windows.Forms.ComboBox();
+            this.cmbDepartment = new System.Windows.Forms.ComboBox();
+            this.cmbSemester = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cmbYear = new System.Windows.Forms.ComboBox();
+            this.cmbSide = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
@@ -85,70 +81,48 @@ namespace ExamPapers
             // 
             // dtDataGridView
             // 
+            this.dtDataGridView.AllowUserToAddRows = false;
+            this.dtDataGridView.AllowUserToDeleteRows = false;
             this.dtDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5});
-            this.dtDataGridView.Location = new System.Drawing.Point(103, 434);
+            this.Delete,
+            this.Edit});
+            this.dtDataGridView.Location = new System.Drawing.Point(29, 428);
             this.dtDataGridView.Name = "dtDataGridView";
+            this.dtDataGridView.ReadOnly = true;
             this.dtDataGridView.RowHeadersWidth = 51;
             this.dtDataGridView.RowTemplate.Height = 29;
-            this.dtDataGridView.Size = new System.Drawing.Size(679, 195);
+            this.dtDataGridView.Size = new System.Drawing.Size(1339, 195);
             this.dtDataGridView.TabIndex = 5;
             this.dtDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtDataGridView_CellContentClick);
             // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "ID";
-            this.Column1.HeaderText = "ID";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 125;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "Name";
-            this.Column2.HeaderText = "Name";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 125;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "Description";
-            this.Column3.HeaderText = "Description";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 125;
-            // 
-            // Column4
+            // Delete
             // 
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Column4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Column4.HeaderText = "";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.Text = "Delete";
-            this.Column4.UseColumnTextForButtonValue = true;
-            this.Column4.Width = 125;
+            this.Delete.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Delete.HeaderText = "";
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForButtonValue = true;
+            this.Delete.Width = 125;
             // 
-            // Column5
+            // Edit
             // 
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Column5.HeaderText = "";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.Text = "Edit";
-            this.Column5.UseColumnTextForButtonValue = true;
-            this.Column5.Width = 125;
+            this.Edit.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Edit.HeaderText = "";
+            this.Edit.MinimumWidth = 6;
+            this.Edit.Name = "Edit";
+            this.Edit.ReadOnly = true;
+            this.Edit.Text = "Edit";
+            this.Edit.UseColumnTextForButtonValue = true;
+            this.Edit.Width = 125;
             // 
             // ID
             // 
@@ -157,29 +131,6 @@ namespace ExamPapers
             this.ID.MinimumWidth = 6;
             this.ID.Name = "ID";
             this.ID.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "ID";
-            this.dataGridViewTextBoxColumn2.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 125;
             // 
             // fileSystemWatcher1
             // 
@@ -198,7 +149,7 @@ namespace ExamPapers
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(559, 401);
+            this.txtSearch.Location = new System.Drawing.Point(1145, 395);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(223, 27);
             this.txtSearch.TabIndex = 7;
@@ -276,6 +227,7 @@ namespace ExamPapers
             this.paperSetCode.Name = "paperSetCode";
             this.paperSetCode.Size = new System.Drawing.Size(248, 27);
             this.paperSetCode.TabIndex = 15;
+            this.paperSetCode.TextChanged += new System.EventHandler(this.paperSetCode_TextChanged);
             // 
             // subjectCode
             // 
@@ -283,6 +235,7 @@ namespace ExamPapers
             this.subjectCode.Name = "subjectCode";
             this.subjectCode.Size = new System.Drawing.Size(248, 27);
             this.subjectCode.TabIndex = 16;
+            this.subjectCode.TextChanged += new System.EventHandler(this.subjectCode_TextChanged);
             // 
             // subjectName
             // 
@@ -290,20 +243,7 @@ namespace ExamPapers
             this.subjectName.Name = "subjectName";
             this.subjectName.Size = new System.Drawing.Size(248, 27);
             this.subjectName.TabIndex = 17;
-            // 
-            // department
-            // 
-            this.department.Location = new System.Drawing.Point(1024, 105);
-            this.department.Name = "department";
-            this.department.Size = new System.Drawing.Size(248, 27);
-            this.department.TabIndex = 20;
-            // 
-            // semester
-            // 
-            this.semester.Location = new System.Drawing.Point(191, 149);
-            this.semester.Name = "semester";
-            this.semester.Size = new System.Drawing.Size(248, 27);
-            this.semester.TabIndex = 21;
+            this.subjectName.TextChanged += new System.EventHandler(this.subjectName_TextChanged);
             // 
             // label10
             // 
@@ -314,12 +254,13 @@ namespace ExamPapers
             this.label10.TabIndex = 22;
             this.label10.Text = "Batch Name";
             // 
-            // textBox1
+            // batchName
             // 
-            this.textBox1.Location = new System.Drawing.Point(612, 149);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(248, 27);
-            this.textBox1.TabIndex = 23;
+            this.batchName.Location = new System.Drawing.Point(612, 149);
+            this.batchName.Name = "batchName";
+            this.batchName.Size = new System.Drawing.Size(248, 27);
+            this.batchName.TabIndex = 23;
+            this.batchName.TextChanged += new System.EventHandler(this.batchName_TextChanged);
             // 
             // label1
             // 
@@ -330,19 +271,21 @@ namespace ExamPapers
             this.label1.TabIndex = 24;
             this.label1.Text = "Row";
             // 
-            // row
+            // rowName
             // 
-            this.row.Location = new System.Drawing.Point(95, 234);
-            this.row.Name = "row";
-            this.row.Size = new System.Drawing.Size(135, 27);
-            this.row.TabIndex = 25;
+            this.rowName.Location = new System.Drawing.Point(95, 234);
+            this.rowName.Name = "rowName";
+            this.rowName.Size = new System.Drawing.Size(135, 27);
+            this.rowName.TabIndex = 25;
+            this.rowName.TextChanged += new System.EventHandler(this.rowName_TextChanged);
             // 
-            // column
+            // columnName
             // 
-            this.column.Location = new System.Drawing.Point(368, 236);
-            this.column.Name = "column";
-            this.column.Size = new System.Drawing.Size(135, 27);
-            this.column.TabIndex = 29;
+            this.columnName.Location = new System.Drawing.Point(368, 236);
+            this.columnName.Name = "columnName";
+            this.columnName.Size = new System.Drawing.Size(135, 27);
+            this.columnName.TabIndex = 29;
+            this.columnName.TextChanged += new System.EventHandler(this.columnName_TextChanged);
             // 
             // label11
             // 
@@ -362,13 +305,6 @@ namespace ExamPapers
             this.label2.TabIndex = 30;
             this.label2.Text = "Side";
             // 
-            // side
-            // 
-            this.side.Location = new System.Drawing.Point(603, 237);
-            this.side.Name = "side";
-            this.side.Size = new System.Drawing.Size(135, 27);
-            this.side.TabIndex = 31;
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -378,12 +314,13 @@ namespace ExamPapers
             this.label12.TabIndex = 32;
             this.label12.Text = "Date";
             // 
-            // dateTimePicker1
+            // date
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(1024, 151);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(250, 27);
-            this.dateTimePicker1.TabIndex = 33;
+            this.date.Location = new System.Drawing.Point(1024, 151);
+            this.date.Name = "date";
+            this.date.Size = new System.Drawing.Size(250, 27);
+            this.date.TabIndex = 33;
+            this.date.ValueChanged += new System.EventHandler(this.date_ValueChanged);
             // 
             // cmbMedium
             // 
@@ -401,26 +338,75 @@ namespace ExamPapers
             this.cmbfaculty.Name = "cmbfaculty";
             this.cmbfaculty.Size = new System.Drawing.Size(248, 28);
             this.cmbfaculty.TabIndex = 35;
+            this.cmbfaculty.SelectedIndexChanged += new System.EventHandler(this.cmbfaculty_SelectedIndexChanged);
+            // 
+            // cmbDepartment
+            // 
+            this.cmbDepartment.FormattingEnabled = true;
+            this.cmbDepartment.Location = new System.Drawing.Point(1024, 105);
+            this.cmbDepartment.Name = "cmbDepartment";
+            this.cmbDepartment.Size = new System.Drawing.Size(248, 28);
+            this.cmbDepartment.TabIndex = 36;
+            this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
+            // 
+            // cmbSemester
+            // 
+            this.cmbSemester.FormattingEnabled = true;
+            this.cmbSemester.Location = new System.Drawing.Point(137, 151);
+            this.cmbSemester.Name = "cmbSemester";
+            this.cmbSemester.Size = new System.Drawing.Size(109, 28);
+            this.cmbSemester.TabIndex = 37;
+            this.cmbSemester.SelectedIndexChanged += new System.EventHandler(this.cmbSemester_SelectedIndexChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(278, 155);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(37, 20);
+            this.label13.TabIndex = 38;
+            this.label13.Text = "Year";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
+            // 
+            // cmbYear
+            // 
+            this.cmbYear.FormattingEnabled = true;
+            this.cmbYear.Location = new System.Drawing.Point(330, 152);
+            this.cmbYear.Name = "cmbYear";
+            this.cmbYear.Size = new System.Drawing.Size(109, 28);
+            this.cmbYear.TabIndex = 39;
+            this.cmbYear.SelectedIndexChanged += new System.EventHandler(this.cmbYear_SelectedIndexChanged);
+            // 
+            // cmbSide
+            // 
+            this.cmbSide.FormattingEnabled = true;
+            this.cmbSide.Location = new System.Drawing.Point(603, 237);
+            this.cmbSide.Name = "cmbSide";
+            this.cmbSide.Size = new System.Drawing.Size(135, 28);
+            this.cmbSide.TabIndex = 40;
+            this.cmbSide.SelectedIndexChanged += new System.EventHandler(this.cmbSide_SelectedIndexChanged);
             // 
             // Papers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1310, 659);
+            this.ClientSize = new System.Drawing.Size(1418, 659);
+            this.Controls.Add(this.cmbSide);
+            this.Controls.Add(this.cmbYear);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.cmbSemester);
+            this.Controls.Add(this.cmbDepartment);
             this.Controls.Add(this.cmbfaculty);
             this.Controls.Add(this.cmbMedium);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.date);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.side);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.column);
+            this.Controls.Add(this.columnName);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.row);
+            this.Controls.Add(this.rowName);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.batchName);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.semester);
-            this.Controls.Add(this.department);
             this.Controls.Add(this.subjectName);
             this.Controls.Add(this.subjectCode);
             this.Controls.Add(this.paperSetCode);
@@ -450,14 +436,6 @@ namespace ExamPapers
         private System.Windows.Forms.Button Save;
         private System.Windows.Forms.DataGridView dtDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewButtonColumn Column4;
-        private System.Windows.Forms.DataGridViewButtonColumn Column5;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
         private System.Windows.Forms.Button Update;
         private System.Windows.Forms.TextBox txtSearch;
@@ -471,19 +449,23 @@ namespace ExamPapers
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox semester;
-        private System.Windows.Forms.TextBox department;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox batchName;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker date;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox side;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox column;
+        private System.Windows.Forms.TextBox columnName;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox row;
+        private System.Windows.Forms.TextBox rowName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbMedium;
         private System.Windows.Forms.ComboBox cmbfaculty;
+        private System.Windows.Forms.ComboBox cmbDepartment;
+        private System.Windows.Forms.ComboBox cmbSemester;
+        private System.Windows.Forms.ComboBox cmbYear;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox cmbSide;
+        private System.Windows.Forms.DataGridViewButtonColumn Delete;
+        private System.Windows.Forms.DataGridViewButtonColumn Edit;
     }
 }
