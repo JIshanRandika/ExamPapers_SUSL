@@ -27,7 +27,7 @@ namespace ExamPapers
 
         public void Clear()
         {
-            name.Text = desc.Text = string.Empty;
+            paperSetCode.Text = subjectCode.Text = string.Empty;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -43,12 +43,11 @@ namespace ExamPapers
         private void Save_Click(object sender, EventArgs e)
         {
 
-            paperName = name.Text;
-            description = desc.Text;
+            
 
             
 
-            Paper paper = new Paper(name.Text.Trim(), desc.Text.Trim());
+            Paper paper = new Paper(paperSetCode.Text.Trim(), subjectCode.Text.Trim());
             DbPaper.AddPaper(paper);
 
             Clear();
@@ -68,7 +67,7 @@ namespace ExamPapers
              dt.Rows.Add(dr);
              dtDataGridView.DataSource = dt;*/
 
-            DbPaper.DisplayAndSearch("SELECT ID, Name, Description FROM paper", dtDataGridView);
+            DbPaper.DisplayAndSearch("SELECT ID, paperSetCode, subjectCode FROM paper", dtDataGridView);
 
         }
 
@@ -87,8 +86,8 @@ namespace ExamPapers
             {
                
                 int row = e.RowIndex;
-                name.Text = Convert.ToString(dtDataGridView.Rows[e.RowIndex].Cells[3].Value);
-                desc.Text = Convert.ToString(dtDataGridView.Rows[e.RowIndex].Cells[4].Value);
+                paperSetCode.Text = Convert.ToString(dtDataGridView.Rows[e.RowIndex].Cells[3].Value);
+                subjectCode.Text = Convert.ToString(dtDataGridView.Rows[e.RowIndex].Cells[4].Value);
                 id = Convert.ToString(dtDataGridView.Rows[e.RowIndex].Cells[2].Value);
 
 
@@ -105,7 +104,7 @@ namespace ExamPapers
 
         private void Update_Click(object sender, EventArgs e)
         {
-            Paper paper = new Paper(name.Text.Trim(), desc.Text.Trim());
+            Paper paper = new Paper(paperSetCode.Text.Trim(), subjectCode.Text.Trim());
             DbPaper.UpdatePaper(paper, id);
 
             Clear();
@@ -115,6 +114,44 @@ namespace ExamPapers
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             DbPaper.DisplayAndSearch("SELECT ID, Name, Description FROM paper WHERE Name LIKE '%"+txtSearch.Text+"%'",dtDataGridView);
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void faculty_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Papers_Load(object sender, EventArgs e)
+        {
+            cmbMedium.Items.Add("English");
+            cmbMedium.Items.Add("Sinhala");
+            cmbMedium.Items.Add("Tamil");
+
+            cmbfaculty.Items.Add("Faculty of Applied Sciences");
+            cmbfaculty.Items.Add("Faculty of Agricultural Sciences");
+            cmbfaculty.Items.Add("Faculty of Geomatics");
+            cmbfaculty.Items.Add("Faculty of Management Studies");
+            cmbfaculty.Items.Add("Faculty of Management Studies");
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
