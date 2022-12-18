@@ -273,6 +273,10 @@ namespace ExamPapers
             cmbMedium.Items.Add("Sinhala");
             cmbMedium.Items.Add("Tamil");
 
+            cmbSearchMedium.Items.Add("English");
+            cmbSearchMedium.Items.Add("Sinhala");
+            cmbSearchMedium.Items.Add("Tamil");
+
             cmbfaculty.Items.Add("Faculty of Applied Sciences");
             cmbfaculty.Items.Add("Faculty of Agricultural Sciences");
             cmbfaculty.Items.Add("Faculty of Geomatics");
@@ -282,72 +286,53 @@ namespace ExamPapers
             cmbfaculty.Items.Add("Faculty of Graduate Studies");
             cmbfaculty.Items.Add("Faculty of Medicine");
 
+            cmbSearchFaculty.Items.Add("Faculty of Applied Sciences");
+            cmbSearchFaculty.Items.Add("Faculty of Agricultural Sciences");
+            cmbSearchFaculty.Items.Add("Faculty of Geomatics");
+            cmbSearchFaculty.Items.Add("Faculty of Management Studies");
+            cmbSearchFaculty.Items.Add("Faculty of Social Sciences & Languages");
+            cmbSearchFaculty.Items.Add("Faculty of Technology");
+            cmbSearchFaculty.Items.Add("Faculty of Graduate Studies");
+            cmbSearchFaculty.Items.Add("Faculty of Medicine");
+
             cmbSemester.Items.Add("Semester I");
             cmbSemester.Items.Add("Semester II");
+
+            cmbSearchSemester.Items.Add("Semester I");
+            cmbSearchSemester.Items.Add("Semester II");
 
             cmbYear.Items.Add("Year 1");
             cmbYear.Items.Add("Year 2");
             cmbYear.Items.Add("Year 3");
             cmbYear.Items.Add("Year 4");
 
+            cmbSearchYear.Items.Add("Year 1");
+            cmbSearchYear.Items.Add("Year 2");
+            cmbSearchYear.Items.Add("Year 3");
+            cmbSearchYear.Items.Add("Year 4");
+
+
             cmbSide.Items.Add("Front");
             cmbSide.Items.Add("Back");
+
+            cmbSearchSide.Items.Add("Front");
+            cmbSearchSide.Items.Add("Back");
 
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-           /* DbPaper.DisplayAndSearch("SELECT ID," +
-               "paperSetCode, " +
-               "subjectCode, " +
-               "subjectName," +
-               "medium," +
-               "faculty," +
-               "department," +
-               "semester," +
-               "year," +
-               "batchName," +
-               "date," +
-               "rowName," +
-               "columnName," +
-               "side FROM paper WHERE medium LIKE '%" + cmbMedium.Text + "%'", dtDataGridView);*/
+           
         }
 
         private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
         {
-          /*  DbPaper.DisplayAndSearch("SELECT ID," +
-               "paperSetCode, " +
-               "subjectCode, " +
-               "subjectName," +
-               "medium," +
-               "faculty," +
-               "department," +
-               "semester," +
-               "year," +
-               "batchName," +
-               "date," +
-               "rowName," +
-               "columnName," +
-               "side FROM paper WHERE department LIKE '%" + cmbDepartment.Text + "%'", dtDataGridView);*/
+          
         }
 
         private void cmbfaculty_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-          /*  DbPaper.DisplayAndSearch("SELECT ID," +
-               "paperSetCode, " +
-               "subjectCode, " +
-               "subjectName," +
-               "medium," +
-               "faculty," +
-               "department," +
-               "semester," +
-               "year," +
-               "batchName," +
-               "date," +
-               "rowName," +
-               "columnName," +
-               "side FROM paper WHERE faculty LIKE '%" + cmbfaculty.Text + "%'", dtDataGridView);*/
 
 
 
@@ -428,110 +413,32 @@ namespace ExamPapers
         private void paperSetCode_TextChanged(object sender, EventArgs e)
         {
             
-        /*    DbPaper.DisplayAndSearch("SELECT ID," +
-                "paperSetCode, " +
-                "subjectCode, " +
-                "subjectName," +
-                "medium," +
-                "faculty," +
-                "department," +
-                "semester," +
-                "year," +
-                "batchName," +
-                "date," +
-                "rowName," +
-                "columnName," +
-                "side FROM paper WHERE paperSetCode LIKE '%" + paperSetCode.Text + "%'", dtDataGridView);*/
+       
         }
 
         private void subjectCode_TextChanged(object sender, EventArgs e)
         {
-         /*   DbPaper.DisplayAndSearch("SELECT ID," +
-               "paperSetCode, " +
-               "subjectCode, " +
-               "subjectName," +
-               "medium," +
-               "faculty," +
-               "department," +
-               "semester," +
-               "year," +
-               "batchName," +
-               "date," +
-               "rowName," +
-               "columnName," +
-               "side FROM paper WHERE subjectCode LIKE '%" + subjectCode.Text + "%'", dtDataGridView);*/
+         
         }
 
         private void subjectName_TextChanged(object sender, EventArgs e)
         {
-          /*  DbPaper.DisplayAndSearch("SELECT ID," +
-               "paperSetCode, " +
-               "subjectCode, " +
-               "subjectName," +
-               "medium," +
-               "faculty," +
-               "department," +
-               "semester," +
-               "year," +
-               "batchName," +
-               "date," +
-               "rowName," +
-               "columnName," +
-               "side FROM paper WHERE subjectName LIKE '%" + subjectName.Text + "%'", dtDataGridView);*/
+          
         }
 
         private void cmbSemester_SelectedIndexChanged(object sender, EventArgs e)
         {
-         /*   DbPaper.DisplayAndSearch("SELECT ID," +
-               "paperSetCode, " +
-               "subjectCode, " +
-               "subjectName," +
-               "medium," +
-               "faculty," +
-               "department," +
-               "semester," +
-               "year," +
-               "batchName," +
-               "date," +
-               "rowName," +
-               "columnName," +
-               "side FROM paper WHERE semester LIKE '%" + cmbSemester.Text + "%'", dtDataGridView);*/
+         
         }
 
         private void cmbYear_SelectedIndexChanged(object sender, EventArgs e)
         {
-          /*  DbPaper.DisplayAndSearch("SELECT ID," +
-               "paperSetCode, " +
-               "subjectCode, " +
-               "subjectName," +
-               "medium," +
-               "faculty," +
-               "department," +
-               "semester," +
-               "year," +
-               "batchName," +
-               "date," +
-               "rowName," +
-               "columnName," +
-               "side FROM paper WHERE year LIKE '%" + cmbYear.Text + "%'", dtDataGridView);*/
+          
         }
 
         private void batchName_TextChanged(object sender, EventArgs e)
         {
-          /*  DbPaper.DisplayAndSearch("SELECT ID," +
-               "paperSetCode, " +
-               "subjectCode, " +
-               "subjectName," +
-               "medium," +
-               "faculty," +
-               "department," +
-               "semester," +
-               "year," +
-               "batchName," +
-               "date," +
-               "rowName," +
-               "columnName," +
-               "side FROM paper WHERE batchName LIKE '%" + batchName.Text + "%'", dtDataGridView);*/
+          
         }
 
         private void date_ValueChanged(object sender, EventArgs e)
@@ -554,56 +461,17 @@ namespace ExamPapers
 
         private void rowName_TextChanged(object sender, EventArgs e)
         {
-          /*  DbPaper.DisplayAndSearch("SELECT ID," +
-              "paperSetCode, " +
-              "subjectCode, " +
-              "subjectName," +
-              "medium," +
-              "faculty," +
-              "department," +
-              "semester," +
-              "year," +
-              "batchName," +
-              "date," +
-              "rowName," +
-              "columnName," +
-              "side FROM paper WHERE rowName LIKE '%" + rowName.Text + "%'", dtDataGridView);*/
+          
         }
 
         private void columnName_TextChanged(object sender, EventArgs e)
         {
-          /*  DbPaper.DisplayAndSearch("SELECT ID," +
-             "paperSetCode, " +
-             "subjectCode, " +
-             "subjectName," +
-             "medium," +
-             "faculty," +
-             "department," +
-             "semester," +
-             "year," +
-             "batchName," +
-             "date," +
-             "rowName," +
-             "columnName," +
-             "side FROM paper WHERE columnName LIKE '%" + columnName.Text + "%'", dtDataGridView);*/
+          
         }
 
         private void cmbSide_SelectedIndexChanged(object sender, EventArgs e)
         {
-         /*   DbPaper.DisplayAndSearch("SELECT ID," +
-             "paperSetCode, " +
-             "subjectCode, " +
-             "subjectName," +
-             "medium," +
-             "faculty," +
-             "department," +
-             "semester," +
-             "year," +
-             "batchName," +
-             "date," +
-             "rowName," +
-             "columnName," +
-             "side FROM paper WHERE side LIKE '%" + cmbSide.Text + "%'", dtDataGridView);*/
+         
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -623,6 +491,295 @@ namespace ExamPapers
             paperSetCode.Text = dtDataGridView.Rows[rowindex].Cells[3].Value.ToString();
             MessageBox.Show(rowindex.ToString());
             subjectCode.Text = dtDataGridView.Rows[rowindex].Cells[4].Value.ToString(); 
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchPaperSetCode_TextChanged(object sender, EventArgs e)
+        {
+                DbPaper.DisplayAndSearch("SELECT ID," +
+               "paperSetCode, " +
+               "subjectCode, " +
+               "subjectName," +
+               "medium," +
+               "faculty," +
+               "department," +
+               "semester," +
+               "year," +
+               "batchName," +
+               "date," +
+               "rowName," +
+               "columnName," +
+               "side FROM paper WHERE paperSetCode LIKE '%" + searchPaperSetCode.Text + "%'", dtDataGridView);
+        }
+
+        private void searchSubjectCode_TextChanged(object sender, EventArgs e)
+        {
+               DbPaper.DisplayAndSearch("SELECT ID," +
+               "paperSetCode, " +
+               "subjectCode, " +
+               "subjectName," +
+               "medium," +
+               "faculty," +
+               "department," +
+               "semester," +
+               "year," +
+               "batchName," +
+               "date," +
+               "rowName," +
+               "columnName," +
+               "side FROM paper WHERE subjectCode LIKE '%" + searchSubjectCode.Text + "%'", dtDataGridView);
+        }
+
+        private void searchSubjectName_TextChanged(object sender, EventArgs e)
+        {
+              DbPaper.DisplayAndSearch("SELECT ID," +
+               "paperSetCode, " +
+               "subjectCode, " +
+               "subjectName," +
+               "medium," +
+               "faculty," +
+               "department," +
+               "semester," +
+               "year," +
+               "batchName," +
+               "date," +
+               "rowName," +
+               "columnName," +
+               "side FROM paper WHERE subjectName LIKE '%" + searchSubjectName.Text + "%'", dtDataGridView);
+        }
+
+        private void cmbSearchMedium_SelectedIndexChanged(object sender, EventArgs e)
+        {
+             DbPaper.DisplayAndSearch("SELECT ID," +
+               "paperSetCode, " +
+               "subjectCode, " +
+               "subjectName," +
+               "medium," +
+               "faculty," +
+               "department," +
+               "semester," +
+               "year," +
+               "batchName," +
+               "date," +
+               "rowName," +
+               "columnName," +
+               "side FROM paper WHERE medium LIKE '%" + cmbSearchMedium.Text + "%'", dtDataGridView);
+        }
+
+        private void cmbSearchFaculty_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+              DbPaper.DisplayAndSearch("SELECT ID," +
+                 "paperSetCode, " +
+                 "subjectCode, " +
+                 "subjectName," +
+                 "medium," +
+                 "faculty," +
+                 "department," +
+                 "semester," +
+                 "year," +
+                 "batchName," +
+                 "date," +
+                 "rowName," +
+                 "columnName," +
+                 "side FROM paper WHERE faculty LIKE '%" + cmbSearchFaculty.Text + "%'", dtDataGridView);
+
+            if (cmbSearchFaculty.SelectedItem == "Faculty of Applied Sciences")
+            {
+                cmbSearchDepartment.Items.Clear();
+                cmbSearchDepartment.Items.Add("Department of Computing and Information System");
+                cmbSearchDepartment.Items.Add("Department of Food Sciences & Technology");
+                cmbSearchDepartment.Items.Add("Department of Natural Resources");
+                cmbSearchDepartment.Items.Add("Department of Physical Sciences And Technology");
+                cmbSearchDepartment.Items.Add("Department of Sport Sciences And Physical Education");
+            }
+            else if (cmbSearchFaculty.SelectedItem == "Faculty of Agricultural Sciences")
+            {
+                cmbSearchDepartment.Items.Clear();
+                cmbSearchDepartment.Items.Add("Department of Agribusiness Management");
+                cmbSearchDepartment.Items.Add("Department of Export Agriculture");
+                cmbSearchDepartment.Items.Add("Department of Livestock Production");
+            }
+            else if (cmbSearchFaculty.SelectedItem == "Faculty of Geomatics")
+            {
+                cmbSearchDepartment.Items.Clear();
+                cmbSearchDepartment.Items.Add("Department of Remote Sensing & GIS");
+                cmbSearchDepartment.Items.Add("Department of Surveying And Geodesy");
+            }
+            else if (cmbSearchFaculty.SelectedItem == "Faculty of Management Studies")
+            {
+                cmbSearchDepartment.Items.Clear();
+                cmbSearchDepartment.Items.Add("Department of Accountancy And Finance");
+                cmbSearchDepartment.Items.Add("Department of Bussiness Management");
+                cmbSearchDepartment.Items.Add("Department of Marketing Management");
+                cmbSearchDepartment.Items.Add("Department of Tourism Management");
+            }
+            else if (cmbSearchFaculty.SelectedItem == "Faculty of Social Sciences & Languages")
+            {
+                cmbSearchDepartment.Items.Clear();
+                cmbSearchDepartment.Items.Add("Department of Economics & Statics");
+                cmbSearchDepartment.Items.Add("Department of English Language Teaching");
+                cmbSearchDepartment.Items.Add("Department of Geography & Environmental Mangement");
+                cmbSearchDepartment.Items.Add("Department of Languages");
+                cmbSearchDepartment.Items.Add("Department of Social Sciences");
+                cmbSearchDepartment.Items.Add("Department of Information Technology");
+            }
+            else if (cmbSearchFaculty.SelectedItem == "Faculty of Technology")
+            {
+                cmbSearchDepartment.Items.Clear();
+                cmbSearchDepartment.Items.Add("Department of Biosystems Technology");
+                cmbSearchDepartment.Items.Add("Department of Engineering Technology");
+
+            }
+            else if (cmbSearchFaculty.SelectedItem == "Faculty of Graduate Studies")
+            {
+                cmbSearchDepartment.Items.Clear();
+                cmbSearchDepartment.Items.Add("Non");
+
+            }
+            else if (cmbSearchFaculty.SelectedItem == "Faculty of Medicine")
+            {
+                cmbSearchDepartment.Items.Clear();
+                cmbSearchDepartment.Items.Add("Department of Anatomy");
+                cmbSearchDepartment.Items.Add("Department of Biochemistry");
+                cmbSearchDepartment.Items.Add("Department of Community Medicine");
+                cmbSearchDepartment.Items.Add("Department of Forensic Medicine & Toxicology");
+                cmbSearchDepartment.Items.Add("Department of Medicine");
+                cmbSearchDepartment.Items.Add("Department of Mictrobiology");
+                cmbSearchDepartment.Items.Add("Department of Obstetrics And Gynaecology");
+                cmbSearchDepartment.Items.Add("Department of Paediatrics");
+
+            }
+        }
+
+        private void cmbSearchDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+              DbPaper.DisplayAndSearch("SELECT ID," +
+               "paperSetCode, " +
+               "subjectCode, " +
+               "subjectName," +
+               "medium," +
+               "faculty," +
+               "department," +
+               "semester," +
+               "year," +
+               "batchName," +
+               "date," +
+               "rowName," +
+               "columnName," +
+               "side FROM paper WHERE department LIKE '%" + cmbSearchDepartment.Text + "%'", dtDataGridView);
+        }
+
+        private void cmbSearchSemester_SelectedIndexChanged(object sender, EventArgs e)
+        {
+              DbPaper.DisplayAndSearch("SELECT ID," +
+               "paperSetCode, " +
+               "subjectCode, " +
+               "subjectName," +
+               "medium," +
+               "faculty," +
+               "department," +
+               "semester," +
+               "year," +
+               "batchName," +
+               "date," +
+               "rowName," +
+               "columnName," +
+               "side FROM paper WHERE semester LIKE '%" + cmbSearchSemester.Text + "%'", dtDataGridView);
+        }
+
+        private void cmbSearchYear_SelectedIndexChanged(object sender, EventArgs e)
+        {
+              DbPaper.DisplayAndSearch("SELECT ID," +
+               "paperSetCode, " +
+               "subjectCode, " +
+               "subjectName," +
+               "medium," +
+               "faculty," +
+               "department," +
+               "semester," +
+               "year," +
+               "batchName," +
+               "date," +
+               "rowName," +
+               "columnName," +
+               "side FROM paper WHERE year LIKE '%" + cmbSearchYear.Text + "%'", dtDataGridView);
+        }
+
+        private void searchBatchName_TextChanged(object sender, EventArgs e)
+        {
+              DbPaper.DisplayAndSearch("SELECT ID," +
+               "paperSetCode, " +
+               "subjectCode, " +
+               "subjectName," +
+               "medium," +
+               "faculty," +
+               "department," +
+               "semester," +
+               "year," +
+               "batchName," +
+               "date," +
+               "rowName," +
+               "columnName," +
+               "side FROM paper WHERE batchName LIKE '%" + searchBatchName.Text + "%'", dtDataGridView);
+        }
+
+        private void searchRow_TextChanged(object sender, EventArgs e)
+        {
+              DbPaper.DisplayAndSearch("SELECT ID," +
+              "paperSetCode, " +
+              "subjectCode, " +
+              "subjectName," +
+              "medium," +
+              "faculty," +
+              "department," +
+              "semester," +
+              "year," +
+              "batchName," +
+              "date," +
+              "rowName," +
+              "columnName," +
+              "side FROM paper WHERE rowName LIKE '%" + searchRow.Text + "%'", dtDataGridView);
+        }
+
+        private void searchColumn_TextChanged(object sender, EventArgs e)
+        {
+              DbPaper.DisplayAndSearch("SELECT ID," +
+             "paperSetCode, " +
+             "subjectCode, " +
+             "subjectName," +
+             "medium," +
+             "faculty," +
+             "department," +
+             "semester," +
+             "year," +
+             "batchName," +
+             "date," +
+             "rowName," +
+             "columnName," +
+             "side FROM paper WHERE columnName LIKE '%" + searchColumn.Text + "%'", dtDataGridView);
+        }
+
+        private void cmbSearchSide_SelectedIndexChanged(object sender, EventArgs e)
+        {
+               DbPaper.DisplayAndSearch("SELECT ID," +
+             "paperSetCode, " +
+             "subjectCode, " +
+             "subjectName," +
+             "medium," +
+             "faculty," +
+             "department," +
+             "semester," +
+             "year," +
+             "batchName," +
+             "date," +
+             "rowName," +
+             "columnName," +
+             "side FROM paper WHERE side LIKE '%" + cmbSearchSide.Text + "%'", dtDataGridView);
         }
     }
 }
