@@ -96,6 +96,23 @@ namespace ExamPapers
 
         }
 
+        public void fill(int row)
+        {
+            paperSetCode.Text = dtDataGridView.SelectedRows[row].Cells[3].Value.ToString();
+            subjectCode.Text = dtDataGridView.SelectedRows[row].Cells[4].Value.ToString();
+            subjectName.Text = dtDataGridView.SelectedRows[row].Cells[5].Value.ToString();
+            cmbMedium.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[6].Value);
+            cmbfaculty.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[7].Value);
+            cmbDepartment.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[8].Value);
+            cmbSemester.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[9].Value);
+            cmbYear.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[10].Value);
+            batchName.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[11].Value);
+            date.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[12].Value);
+            rowName.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[13].Value);
+            columnName.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[14].Value);
+            cmbSide.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[15].Value);
+            id = Convert.ToString(dtDataGridView.Rows[row].Cells[2].Value);
+        }
         public void Display()
         {
             /* dt.Columns.Add("PaperName");
@@ -128,8 +145,13 @@ namespace ExamPapers
 
         private void dtDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+           /* int rowindex = dtDataGridView.CurrentCell.RowIndex;
+            int columnindex = dtDataGridView.CurrentCell.ColumnIndex;
 
-            if(e.ColumnIndex == 0)
+            paperSetCode.Text = dtDataGridView.Rows[rowindex].Cells[3].Value.ToString();*/
+
+
+            if (e.ColumnIndex == 0)
             {
                 //Delete
                 if (MessageBox.Show("Are you want to delete paper record?","Information",MessageBoxButtons.YesNoCancel,MessageBoxIcon.Information)==DialogResult.Yes){
@@ -139,29 +161,44 @@ namespace ExamPapers
             }
             if (e.ColumnIndex == 1)
             {
-               
+
                 int row = e.RowIndex;
-                paperSetCode.Text = Convert.ToString(dtDataGridView.Rows[e.RowIndex].Cells[3].Value);
-                subjectCode.Text = Convert.ToString(dtDataGridView.Rows[e.RowIndex].Cells[4].Value);
-                subjectName.Text = Convert.ToString(dtDataGridView.Rows[e.RowIndex].Cells[5].Value);
-                cmbMedium.Text = Convert.ToString(dtDataGridView.Rows[e.RowIndex].Cells[6].Value);
-                cmbfaculty.Text = Convert.ToString(dtDataGridView.Rows[e.RowIndex].Cells[7].Value);
-                cmbDepartment.Text = Convert.ToString(dtDataGridView.Rows[e.RowIndex].Cells[8].Value);
-                cmbSemester.Text = Convert.ToString(dtDataGridView.Rows[e.RowIndex].Cells[9].Value);
-                cmbYear.Text = Convert.ToString(dtDataGridView.Rows[e.RowIndex].Cells[10].Value);
-                batchName.Text = Convert.ToString(dtDataGridView.Rows[e.RowIndex].Cells[11].Value);
-                date.Text = Convert.ToString(dtDataGridView.Rows[e.RowIndex].Cells[12].Value);
-                rowName.Text = Convert.ToString(dtDataGridView.Rows[e.RowIndex].Cells[13].Value);
-                columnName.Text = Convert.ToString(dtDataGridView.Rows[e.RowIndex].Cells[14].Value);
-                cmbSide.Text = Convert.ToString(dtDataGridView.Rows[e.RowIndex].Cells[15].Value);
-                id = Convert.ToString(dtDataGridView.Rows[e.RowIndex].Cells[2].Value);
+                /// fill(row);
+                /// 
 
 
 
 
-                return;
+                /* DataGridViewRow row = dtDataGridView.Rows[e.RowIndex];
+                 paperSetCode.Text = row.Cells["paperSetCode"].Value.ToString();
+                 subjectCode.Text = row.Cells["subjectCode"].Value.ToString();*/
+
+                //DataGridViewRow row = dtDataGridView.Rows[e.RowIndex];
+
+                // paperSetCode.Text = row.Cells[3].Value.ToString();
+                //subjectCode.Text = row.Cells[4].Value.ToString();
+
+               
+
+                paperSetCode.Text = dtDataGridView.Rows[row].Cells[3].Value.ToString();
+                subjectCode.Text = dtDataGridView.Rows[row].Cells[4].Value.ToString();
+                 subjectName.Text = dtDataGridView.Rows[row].Cells[5].Value.ToString();
+                 cmbMedium.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[6].Value);
+                 cmbfaculty.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[7].Value);
+                 cmbDepartment.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[8].Value);
+                 cmbSemester.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[9].Value);
+                 cmbYear.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[10].Value);
+                 batchName.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[11].Value);
+                 date.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[12].Value);
+                 rowName.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[13].Value);
+                 columnName.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[14].Value);
+                 cmbSide.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[15].Value);
+                 id = Convert.ToString(dtDataGridView.Rows[row].Cells[2].Value);
+
             }
-        }
+            
+
+            }
 
         private void name_TextChanged(object sender, EventArgs e)
         {
@@ -260,7 +297,7 @@ namespace ExamPapers
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DbPaper.DisplayAndSearch("SELECT ID," +
+           /* DbPaper.DisplayAndSearch("SELECT ID," +
                "paperSetCode, " +
                "subjectCode, " +
                "subjectName," +
@@ -273,12 +310,12 @@ namespace ExamPapers
                "date," +
                "rowName," +
                "columnName," +
-               "side FROM paper WHERE medium LIKE '%" + cmbMedium.Text + "%'", dtDataGridView);
+               "side FROM paper WHERE medium LIKE '%" + cmbMedium.Text + "%'", dtDataGridView);*/
         }
 
         private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DbPaper.DisplayAndSearch("SELECT ID," +
+          /*  DbPaper.DisplayAndSearch("SELECT ID," +
                "paperSetCode, " +
                "subjectCode, " +
                "subjectName," +
@@ -291,13 +328,13 @@ namespace ExamPapers
                "date," +
                "rowName," +
                "columnName," +
-               "side FROM paper WHERE department LIKE '%" + cmbDepartment.Text + "%'", dtDataGridView);
+               "side FROM paper WHERE department LIKE '%" + cmbDepartment.Text + "%'", dtDataGridView);*/
         }
 
         private void cmbfaculty_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            DbPaper.DisplayAndSearch("SELECT ID," +
+          /*  DbPaper.DisplayAndSearch("SELECT ID," +
                "paperSetCode, " +
                "subjectCode, " +
                "subjectName," +
@@ -310,7 +347,7 @@ namespace ExamPapers
                "date," +
                "rowName," +
                "columnName," +
-               "side FROM paper WHERE faculty LIKE '%" + cmbfaculty.Text + "%'", dtDataGridView);
+               "side FROM paper WHERE faculty LIKE '%" + cmbfaculty.Text + "%'", dtDataGridView);*/
 
 
 
@@ -391,7 +428,7 @@ namespace ExamPapers
         private void paperSetCode_TextChanged(object sender, EventArgs e)
         {
             
-            DbPaper.DisplayAndSearch("SELECT ID," +
+        /*    DbPaper.DisplayAndSearch("SELECT ID," +
                 "paperSetCode, " +
                 "subjectCode, " +
                 "subjectName," +
@@ -404,12 +441,12 @@ namespace ExamPapers
                 "date," +
                 "rowName," +
                 "columnName," +
-                "side FROM paper WHERE paperSetCode LIKE '%" + paperSetCode.Text + "%'", dtDataGridView);
+                "side FROM paper WHERE paperSetCode LIKE '%" + paperSetCode.Text + "%'", dtDataGridView);*/
         }
 
         private void subjectCode_TextChanged(object sender, EventArgs e)
         {
-            DbPaper.DisplayAndSearch("SELECT ID," +
+         /*   DbPaper.DisplayAndSearch("SELECT ID," +
                "paperSetCode, " +
                "subjectCode, " +
                "subjectName," +
@@ -422,12 +459,12 @@ namespace ExamPapers
                "date," +
                "rowName," +
                "columnName," +
-               "side FROM paper WHERE subjectCode LIKE '%" + subjectCode.Text + "%'", dtDataGridView);
+               "side FROM paper WHERE subjectCode LIKE '%" + subjectCode.Text + "%'", dtDataGridView);*/
         }
 
         private void subjectName_TextChanged(object sender, EventArgs e)
         {
-            DbPaper.DisplayAndSearch("SELECT ID," +
+          /*  DbPaper.DisplayAndSearch("SELECT ID," +
                "paperSetCode, " +
                "subjectCode, " +
                "subjectName," +
@@ -440,12 +477,12 @@ namespace ExamPapers
                "date," +
                "rowName," +
                "columnName," +
-               "side FROM paper WHERE subjectName LIKE '%" + subjectName.Text + "%'", dtDataGridView);
+               "side FROM paper WHERE subjectName LIKE '%" + subjectName.Text + "%'", dtDataGridView);*/
         }
 
         private void cmbSemester_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DbPaper.DisplayAndSearch("SELECT ID," +
+         /*   DbPaper.DisplayAndSearch("SELECT ID," +
                "paperSetCode, " +
                "subjectCode, " +
                "subjectName," +
@@ -458,12 +495,12 @@ namespace ExamPapers
                "date," +
                "rowName," +
                "columnName," +
-               "side FROM paper WHERE semester LIKE '%" + cmbSemester.Text + "%'", dtDataGridView);
+               "side FROM paper WHERE semester LIKE '%" + cmbSemester.Text + "%'", dtDataGridView);*/
         }
 
         private void cmbYear_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DbPaper.DisplayAndSearch("SELECT ID," +
+          /*  DbPaper.DisplayAndSearch("SELECT ID," +
                "paperSetCode, " +
                "subjectCode, " +
                "subjectName," +
@@ -476,12 +513,12 @@ namespace ExamPapers
                "date," +
                "rowName," +
                "columnName," +
-               "side FROM paper WHERE year LIKE '%" + cmbYear.Text + "%'", dtDataGridView);
+               "side FROM paper WHERE year LIKE '%" + cmbYear.Text + "%'", dtDataGridView);*/
         }
 
         private void batchName_TextChanged(object sender, EventArgs e)
         {
-            DbPaper.DisplayAndSearch("SELECT ID," +
+          /*  DbPaper.DisplayAndSearch("SELECT ID," +
                "paperSetCode, " +
                "subjectCode, " +
                "subjectName," +
@@ -494,12 +531,12 @@ namespace ExamPapers
                "date," +
                "rowName," +
                "columnName," +
-               "side FROM paper WHERE batchName LIKE '%" + batchName.Text + "%'", dtDataGridView);
+               "side FROM paper WHERE batchName LIKE '%" + batchName.Text + "%'", dtDataGridView);*/
         }
 
         private void date_ValueChanged(object sender, EventArgs e)
         {
-            DbPaper.DisplayAndSearch("SELECT ID," +
+           /* DbPaper.DisplayAndSearch("SELECT ID," +
                "paperSetCode, " +
                "subjectCode, " +
                "subjectName," +
@@ -512,12 +549,12 @@ namespace ExamPapers
                "date," +
                "rowName," +
                "columnName," +
-               "side FROM paper WHERE date LIKE '%" + date.Text + "%'", dtDataGridView);
+               "side FROM paper WHERE date LIKE '%" + date.Text + "%'", dtDataGridView);*/
         }
 
         private void rowName_TextChanged(object sender, EventArgs e)
         {
-            DbPaper.DisplayAndSearch("SELECT ID," +
+          /*  DbPaper.DisplayAndSearch("SELECT ID," +
               "paperSetCode, " +
               "subjectCode, " +
               "subjectName," +
@@ -530,12 +567,12 @@ namespace ExamPapers
               "date," +
               "rowName," +
               "columnName," +
-              "side FROM paper WHERE rowName LIKE '%" + rowName.Text + "%'", dtDataGridView);
+              "side FROM paper WHERE rowName LIKE '%" + rowName.Text + "%'", dtDataGridView);*/
         }
 
         private void columnName_TextChanged(object sender, EventArgs e)
         {
-            DbPaper.DisplayAndSearch("SELECT ID," +
+          /*  DbPaper.DisplayAndSearch("SELECT ID," +
              "paperSetCode, " +
              "subjectCode, " +
              "subjectName," +
@@ -548,12 +585,12 @@ namespace ExamPapers
              "date," +
              "rowName," +
              "columnName," +
-             "side FROM paper WHERE columnName LIKE '%" + columnName.Text + "%'", dtDataGridView);
+             "side FROM paper WHERE columnName LIKE '%" + columnName.Text + "%'", dtDataGridView);*/
         }
 
         private void cmbSide_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DbPaper.DisplayAndSearch("SELECT ID," +
+         /*   DbPaper.DisplayAndSearch("SELECT ID," +
              "paperSetCode, " +
              "subjectCode, " +
              "subjectName," +
@@ -566,7 +603,26 @@ namespace ExamPapers
              "date," +
              "rowName," +
              "columnName," +
-             "side FROM paper WHERE side LIKE '%" + cmbSide.Text + "%'", dtDataGridView);
+             "side FROM paper WHERE side LIKE '%" + cmbSide.Text + "%'", dtDataGridView);*/
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            /*foreach (DataGridViewRow row in dtDataGridView.SelectedRows)
+            {
+                paperSetCode.Text = row.Cells[3].Value.ToString();
+                subjectCode.Text = row.Cells[4].Value.ToString();
+                //...
+            }
+            */
+            int rowindex = dtDataGridView.CurrentCell.RowIndex;
+           
+            
+            MessageBox.Show(rowindex.ToString());
+
+            paperSetCode.Text = dtDataGridView.Rows[rowindex].Cells[3].Value.ToString();
+            MessageBox.Show(rowindex.ToString());
+            subjectCode.Text = dtDataGridView.Rows[rowindex].Cells[4].Value.ToString(); 
         }
     }
 }
