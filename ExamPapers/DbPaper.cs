@@ -41,7 +41,7 @@ namespace ExamPapers
             cmd.Parameters.Add("@department", MySqlDbType.VarChar).Value = paper.department;
             cmd.Parameters.Add("@semester", MySqlDbType.VarChar).Value = paper.semester;
             cmd.Parameters.Add("@batchName", MySqlDbType.VarChar).Value = paper.batchName;
-            cmd.Parameters.Add("@date", MySqlDbType.VarChar).Value = paper.date;
+            cmd.Parameters.Add("@date", MySqlDbType.DateTime).Value = Convert.ToDateTime(paper.date);
             cmd.Parameters.Add("@rowName", MySqlDbType.VarChar).Value = paper.rowName;
             cmd.Parameters.Add("@columnName", MySqlDbType.VarChar).Value = paper.columnName;
             cmd.Parameters.Add("@side", MySqlDbType.VarChar).Value = paper.side;
@@ -87,7 +87,7 @@ namespace ExamPapers
             cmd.Parameters.Add("@department", MySqlDbType.VarChar).Value = paper.department;
             cmd.Parameters.Add("@semester", MySqlDbType.VarChar).Value = paper.semester;
             cmd.Parameters.Add("@batchName", MySqlDbType.VarChar).Value = paper.batchName;
-            cmd.Parameters.Add("@date", MySqlDbType.VarChar).Value = paper.date;
+            cmd.Parameters.Add("@date", MySqlDbType.DateTime).Value = Convert.ToDateTime(paper.date);
             cmd.Parameters.Add("@rowName", MySqlDbType.VarChar).Value = paper.rowName;
             cmd.Parameters.Add("@columnName", MySqlDbType.VarChar).Value = paper.columnName;
             cmd.Parameters.Add("@side", MySqlDbType.VarChar).Value = paper.side;

@@ -29,8 +29,8 @@ namespace ExamPapers
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Save = new System.Windows.Forms.Button();
             this.dtDataGridView = new System.Windows.Forms.DataGridView();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -90,8 +90,11 @@ namespace ExamPapers
             this.cmbSearchYear = new System.Windows.Forms.ComboBox();
             this.searchBatchName = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label26 = new System.Windows.Forms.Label();
             this.searchSubjectCode = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.fromDate = new System.Windows.Forms.DateTimePicker();
+            this.toDate = new System.Windows.Forms.DateTimePicker();
+            this.btnDateRange = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -118,7 +121,7 @@ namespace ExamPapers
             this.dtDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Delete,
             this.Edit});
-            this.dtDataGridView.Location = new System.Drawing.Point(29, 493);
+            this.dtDataGridView.Location = new System.Drawing.Point(29, 537);
             this.dtDataGridView.Name = "dtDataGridView";
             this.dtDataGridView.ReadOnly = true;
             this.dtDataGridView.RowHeadersWidth = 51;
@@ -129,11 +132,11 @@ namespace ExamPapers
             // 
             // Delete
             // 
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.Red;
-            this.Delete.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Red;
+            this.Delete.DefaultCellStyle = dataGridViewCellStyle1;
             this.Delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Delete.HeaderText = "";
             this.Delete.MinimumWidth = 6;
@@ -145,11 +148,11 @@ namespace ExamPapers
             // 
             // Edit
             // 
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            this.Edit.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            this.Edit.DefaultCellStyle = dataGridViewCellStyle2;
             this.Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Edit.HeaderText = "";
             this.Edit.MinimumWidth = 6;
@@ -676,6 +679,14 @@ namespace ExamPapers
             this.panel2.Size = new System.Drawing.Size(1339, 236);
             this.panel2.TabIndex = 42;
             // 
+            // searchSubjectCode
+            // 
+            this.searchSubjectCode.Location = new System.Drawing.Point(257, 101);
+            this.searchSubjectCode.Name = "searchSubjectCode";
+            this.searchSubjectCode.Size = new System.Drawing.Size(268, 27);
+            this.searchSubjectCode.TabIndex = 65;
+            this.searchSubjectCode.TextChanged += new System.EventHandler(this.searchSubjectCode_TextChanged);
+            // 
             // label26
             // 
             this.label26.AutoSize = true;
@@ -686,20 +697,44 @@ namespace ExamPapers
             this.label26.TabIndex = 65;
             this.label26.Text = "Search By Subject Code";
             // 
-            // searchSubjectCode
+            // fromDate
             // 
-            this.searchSubjectCode.Location = new System.Drawing.Point(257, 101);
-            this.searchSubjectCode.Name = "searchSubjectCode";
-            this.searchSubjectCode.Size = new System.Drawing.Size(268, 27);
-            this.searchSubjectCode.TabIndex = 65;
-            this.searchSubjectCode.TextChanged += new System.EventHandler(this.searchSubjectCode_TextChanged);
+            this.fromDate.CustomFormat = "yyyy-MM-dd hh:mm:ss";
+            this.fromDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.fromDate.Location = new System.Drawing.Point(657, 491);
+            this.fromDate.Name = "fromDate";
+            this.fromDate.Size = new System.Drawing.Size(248, 27);
+            this.fromDate.TabIndex = 65;
+            this.fromDate.ValueChanged += new System.EventHandler(this.fromDate_ValueChanged);
+            // 
+            // toDate
+            // 
+            this.toDate.CustomFormat = "yyyy-MM-dd hh:mm:ss";
+            this.toDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.toDate.Location = new System.Drawing.Point(924, 491);
+            this.toDate.Name = "toDate";
+            this.toDate.Size = new System.Drawing.Size(248, 27);
+            this.toDate.TabIndex = 66;
+            // 
+            // btnDateRange
+            // 
+            this.btnDateRange.Location = new System.Drawing.Point(1191, 489);
+            this.btnDateRange.Name = "btnDateRange";
+            this.btnDateRange.Size = new System.Drawing.Size(129, 29);
+            this.btnDateRange.TabIndex = 67;
+            this.btnDateRange.Text = "Date Range";
+            this.btnDateRange.UseVisualStyleBackColor = true;
+            this.btnDateRange.Click += new System.EventHandler(this.btnDateRange_Click);
             // 
             // Papers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(1418, 700);
+            this.ClientSize = new System.Drawing.Size(1418, 760);
+            this.Controls.Add(this.btnDateRange);
+            this.Controls.Add(this.toDate);
+            this.Controls.Add(this.fromDate);
             this.Controls.Add(this.columnName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.searchBatchName);
@@ -822,5 +857,8 @@ namespace ExamPapers
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox searchSubjectCode;
         private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Button btnDateRange;
+        private System.Windows.Forms.DateTimePicker toDate;
+        private System.Windows.Forms.DateTimePicker fromDate;
     }
 }

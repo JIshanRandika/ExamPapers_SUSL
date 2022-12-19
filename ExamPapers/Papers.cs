@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Text;
 using System.Windows.Forms;
 
@@ -780,6 +781,45 @@ namespace ExamPapers
              "rowName," +
              "columnName," +
              "side FROM paper WHERE side LIKE '%" + cmbSearchSide.Text + "%'", dtDataGridView);
+        }
+
+        private void btnDateRange_Click(object sender, EventArgs e)
+        {
+
+            /*DateTime to = Convert.ToDateTime(toDate.Text);
+            string todate = Convert.ToString(to);
+
+            string s = "13/5/2014 12:00:00 AM";*/
+
+            /*string date = Convert.ToString(DateTime.ParseExact(s, "yyyy-mm-dd hh:mm:ss",
+                                   CultureInfo.InvariantCulture));*/
+
+           // MessageBox.Show(fromDate.Text);
+
+            
+
+           // DateTime from = Convert.ToDateTime(fromDate.Text);
+            //string fromdate = Convert.ToString(from);
+
+            DbPaper.DisplayAndSearch("SELECT ID," +
+             "paperSetCode, " +
+             "subjectCode, " +
+             "subjectName," +
+             "medium," +
+             "faculty," +
+             "department," +
+             "semester," +
+             "year," +
+             "batchName," +
+             "date," +
+             "rowName," +
+             "columnName," +
+             "side FROM paper WHERE date BETWEEN '"+ fromDate.Text +"' AND '" + toDate.Text + "'", dtDataGridView);
+        }
+
+        private void fromDate_ValueChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
