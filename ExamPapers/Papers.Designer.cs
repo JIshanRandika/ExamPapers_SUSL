@@ -29,8 +29,8 @@ namespace ExamPapers
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Save = new System.Windows.Forms.Button();
             this.dtDataGridView = new System.Windows.Forms.DataGridView();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -66,6 +66,10 @@ namespace ExamPapers
             this.cmbYear = new System.Windows.Forms.ComboBox();
             this.cmbSide = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cmbStatus = new System.Windows.Forms.ComboBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.qty = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.searchPaperSetCode = new System.Windows.Forms.TextBox();
@@ -90,13 +94,18 @@ namespace ExamPapers
             this.cmbSearchYear = new System.Windows.Forms.ComboBox();
             this.searchBatchName = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cmbSearchStatus = new System.Windows.Forms.ComboBox();
             this.searchSubjectCode = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.fromDate = new System.Windows.Forms.DateTimePicker();
             this.toDate = new System.Windows.Forms.DateTimePicker();
             this.btnDateRange = new System.Windows.Forms.Button();
+            this.preYears = new System.Windows.Forms.TextBox();
+            this.btnPreYears = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -132,11 +141,11 @@ namespace ExamPapers
             // 
             // Delete
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Red;
-            this.Delete.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Red;
+            this.Delete.DefaultCellStyle = dataGridViewCellStyle3;
             this.Delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Delete.HeaderText = "";
             this.Delete.MinimumWidth = 6;
@@ -148,11 +157,11 @@ namespace ExamPapers
             // 
             // Edit
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            this.Edit.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            this.Edit.DefaultCellStyle = dataGridViewCellStyle4;
             this.Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Edit.HeaderText = "";
             this.Edit.MinimumWidth = 6;
@@ -269,9 +278,9 @@ namespace ExamPapers
             // 
             // paperSetCode
             // 
-            this.paperSetCode.Location = new System.Drawing.Point(220, 41);
+            this.paperSetCode.Location = new System.Drawing.Point(169, 27);
             this.paperSetCode.Name = "paperSetCode";
-            this.paperSetCode.Size = new System.Drawing.Size(248, 27);
+            this.paperSetCode.Size = new System.Drawing.Size(123, 27);
             this.paperSetCode.TabIndex = 15;
             this.paperSetCode.TextChanged += new System.EventHandler(this.paperSetCode_TextChanged);
             // 
@@ -313,7 +322,7 @@ namespace ExamPapers
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(84, 188);
+            this.label1.Location = new System.Drawing.Point(83, 188);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 20);
             this.label1.TabIndex = 24;
@@ -321,17 +330,17 @@ namespace ExamPapers
             // 
             // rowName
             // 
-            this.rowName.Location = new System.Drawing.Point(128, 185);
+            this.rowName.Location = new System.Drawing.Point(123, 185);
             this.rowName.Name = "rowName";
-            this.rowName.Size = new System.Drawing.Size(135, 27);
+            this.rowName.Size = new System.Drawing.Size(101, 27);
             this.rowName.TabIndex = 25;
             this.rowName.TextChanged += new System.EventHandler(this.rowName_TextChanged);
             // 
             // columnName
             // 
-            this.columnName.Location = new System.Drawing.Point(402, 185);
+            this.columnName.Location = new System.Drawing.Point(298, 185);
             this.columnName.Name = "columnName";
-            this.columnName.Size = new System.Drawing.Size(135, 27);
+            this.columnName.Size = new System.Drawing.Size(96, 27);
             this.columnName.TabIndex = 29;
             this.columnName.TextChanged += new System.EventHandler(this.columnName_TextChanged);
             // 
@@ -339,7 +348,7 @@ namespace ExamPapers
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(314, 187);
+            this.label11.Location = new System.Drawing.Point(231, 187);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(63, 20);
             this.label11.TabIndex = 28;
@@ -349,7 +358,7 @@ namespace ExamPapers
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(582, 188);
+            this.label2.Location = new System.Drawing.Point(404, 188);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 20);
             this.label2.TabIndex = 30;
@@ -432,19 +441,59 @@ namespace ExamPapers
             // cmbSide
             // 
             this.cmbSide.FormattingEnabled = true;
-            this.cmbSide.Location = new System.Drawing.Point(640, 185);
+            this.cmbSide.Location = new System.Drawing.Point(449, 185);
             this.cmbSide.Name = "cmbSide";
-            this.cmbSide.Size = new System.Drawing.Size(135, 28);
+            this.cmbSide.Size = new System.Drawing.Size(134, 28);
             this.cmbSide.TabIndex = 40;
             this.cmbSide.SelectedIndexChanged += new System.EventHandler(this.cmbSide_SelectedIndexChanged);
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.cmbStatus);
+            this.panel1.Controls.Add(this.label28);
+            this.panel1.Controls.Add(this.qty);
+            this.panel1.Controls.Add(this.label27);
+            this.panel1.Controls.Add(this.paperSetCode);
             this.panel1.Location = new System.Drawing.Point(29, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1339, 218);
             this.panel1.TabIndex = 41;
+            // 
+            // cmbStatus
+            // 
+            this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Location = new System.Drawing.Point(710, 171);
+            this.cmbStatus.Name = "cmbStatus";
+            this.cmbStatus.Size = new System.Drawing.Size(134, 28);
+            this.cmbStatus.TabIndex = 68;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label28.Location = new System.Drawing.Point(560, 174);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(144, 20);
+            this.label28.TabIndex = 68;
+            this.label28.Text = "Available/Disposed";
+            // 
+            // qty
+            // 
+            this.qty.Location = new System.Drawing.Point(333, 27);
+            this.qty.Name = "qty";
+            this.qty.Size = new System.Drawing.Size(104, 27);
+            this.qty.TabIndex = 69;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label27.Location = new System.Drawing.Point(298, 30);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(34, 20);
+            this.label27.TabIndex = 68;
+            this.label27.Text = "Qty";
             // 
             // label14
             // 
@@ -585,7 +634,7 @@ namespace ExamPapers
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label24.Location = new System.Drawing.Point(539, 98);
+            this.label24.Location = new System.Drawing.Point(539, 69);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(135, 20);
             this.label24.TabIndex = 59;
@@ -595,7 +644,7 @@ namespace ExamPapers
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label25.Location = new System.Drawing.Point(543, 174);
+            this.label25.Location = new System.Drawing.Point(543, 112);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(110, 20);
             this.label25.TabIndex = 60;
@@ -603,7 +652,7 @@ namespace ExamPapers
             // 
             // searchRow
             // 
-            this.searchRow.Location = new System.Drawing.Point(680, 22);
+            this.searchRow.Location = new System.Drawing.Point(692, 23);
             this.searchRow.Name = "searchRow";
             this.searchRow.Size = new System.Drawing.Size(135, 27);
             this.searchRow.TabIndex = 41;
@@ -611,7 +660,7 @@ namespace ExamPapers
             // 
             // searchColumn
             // 
-            this.searchColumn.Location = new System.Drawing.Point(680, 94);
+            this.searchColumn.Location = new System.Drawing.Point(691, 64);
             this.searchColumn.Name = "searchColumn";
             this.searchColumn.Size = new System.Drawing.Size(135, 27);
             this.searchColumn.TabIndex = 41;
@@ -629,7 +678,7 @@ namespace ExamPapers
             // cmbSearchSide
             // 
             this.cmbSearchSide.FormattingEnabled = true;
-            this.cmbSearchSide.Location = new System.Drawing.Point(680, 166);
+            this.cmbSearchSide.Location = new System.Drawing.Point(692, 104);
             this.cmbSearchSide.Name = "cmbSearchSide";
             this.cmbSearchSide.Size = new System.Drawing.Size(135, 28);
             this.cmbSearchSide.TabIndex = 41;
@@ -664,7 +713,9 @@ namespace ExamPapers
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.cmbSearchStatus);
             this.panel2.Controls.Add(this.searchSubjectCode);
+            this.panel2.Controls.Add(this.label29);
             this.panel2.Controls.Add(this.label26);
             this.panel2.Controls.Add(this.label23);
             this.panel2.Controls.Add(this.searchRow);
@@ -679,6 +730,14 @@ namespace ExamPapers
             this.panel2.Size = new System.Drawing.Size(1339, 236);
             this.panel2.TabIndex = 42;
             // 
+            // cmbSearchStatus
+            // 
+            this.cmbSearchStatus.FormattingEnabled = true;
+            this.cmbSearchStatus.Location = new System.Drawing.Point(691, 151);
+            this.cmbSearchStatus.Name = "cmbSearchStatus";
+            this.cmbSearchStatus.Size = new System.Drawing.Size(136, 28);
+            this.cmbSearchStatus.TabIndex = 70;
+            // 
             // searchSubjectCode
             // 
             this.searchSubjectCode.Location = new System.Drawing.Point(257, 101);
@@ -686,6 +745,17 @@ namespace ExamPapers
             this.searchSubjectCode.Size = new System.Drawing.Size(268, 27);
             this.searchSubjectCode.TabIndex = 65;
             this.searchSubjectCode.TextChanged += new System.EventHandler(this.searchSubjectCode_TextChanged);
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label29.Location = new System.Drawing.Point(543, 159);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(144, 20);
+            this.label29.TabIndex = 71;
+            this.label29.Text = "Available/Disposed";
+            this.label29.Click += new System.EventHandler(this.label29_Click);
             // 
             // label26
             // 
@@ -726,12 +796,32 @@ namespace ExamPapers
             this.btnDateRange.UseVisualStyleBackColor = true;
             this.btnDateRange.Click += new System.EventHandler(this.btnDateRange_Click);
             // 
+            // preYears
+            // 
+            this.preYears.Location = new System.Drawing.Point(376, 493);
+            this.preYears.Name = "preYears";
+            this.preYears.Size = new System.Drawing.Size(79, 27);
+            this.preYears.TabIndex = 68;
+            this.preYears.TextChanged += new System.EventHandler(this.preYears_TextChanged);
+            // 
+            // btnPreYears
+            // 
+            this.btnPreYears.Location = new System.Drawing.Point(461, 491);
+            this.btnPreYears.Name = "btnPreYears";
+            this.btnPreYears.Size = new System.Drawing.Size(163, 29);
+            this.btnPreYears.TabIndex = 69;
+            this.btnPreYears.Text = "Previous Years";
+            this.btnPreYears.UseVisualStyleBackColor = true;
+            this.btnPreYears.Click += new System.EventHandler(this.btnPreYears_Click);
+            // 
             // Papers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(1418, 760);
+            this.Controls.Add(this.btnPreYears);
+            this.Controls.Add(this.preYears);
             this.Controls.Add(this.btnDateRange);
             this.Controls.Add(this.toDate);
             this.Controls.Add(this.fromDate);
@@ -771,7 +861,6 @@ namespace ExamPapers
             this.Controls.Add(this.label10);
             this.Controls.Add(this.subjectName);
             this.Controls.Add(this.subjectCode);
-            this.Controls.Add(this.paperSetCode);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -788,6 +877,8 @@ namespace ExamPapers
             this.Load += new System.EventHandler(this.Papers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -860,5 +951,13 @@ namespace ExamPapers
         private System.Windows.Forms.Button btnDateRange;
         private System.Windows.Forms.DateTimePicker toDate;
         private System.Windows.Forms.DateTimePicker fromDate;
+        private System.Windows.Forms.ComboBox cmbStatus;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox qty;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.ComboBox cmbSearchStatus;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Button btnPreYears;
+        private System.Windows.Forms.TextBox preYears;
     }
 }

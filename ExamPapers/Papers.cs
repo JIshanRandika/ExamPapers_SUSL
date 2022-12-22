@@ -53,6 +53,8 @@ namespace ExamPapers
                 = rowName.Text
                 = columnName.Text
                 = cmbSide.Text
+                = qty.Text
+                = cmbStatus.Text
                 = string.Empty;
         }
 
@@ -86,7 +88,9 @@ namespace ExamPapers
                 date.Text.Trim(),
                 rowName.Text.Trim(),
                 columnName.Text.Trim(),
-                cmbSide.Text.Trim()
+                cmbSide.Text.Trim(),
+                qty.Text.Trim(),
+                cmbStatus.Text.Trim()
 
                 );
 
@@ -112,6 +116,8 @@ namespace ExamPapers
             rowName.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[13].Value);
             columnName.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[14].Value);
             cmbSide.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[15].Value);
+            qty.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[16].Value);
+            cmbStatus.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[17].Value);
             id = Convert.ToString(dtDataGridView.Rows[row].Cells[2].Value);
         }
         public void Display()
@@ -139,7 +145,9 @@ namespace ExamPapers
                 "date," +
                 "rowName," +
                 "columnName," +
-                "side" +
+                "side," +
+                "qty," +
+                "status" +
                 " FROM paper", dtDataGridView);
 
         }
@@ -194,6 +202,8 @@ namespace ExamPapers
                  rowName.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[13].Value);
                  columnName.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[14].Value);
                  cmbSide.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[15].Value);
+                 qty.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[16].Value);
+                 cmbStatus.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[17].Value);
                  id = Convert.ToString(dtDataGridView.Rows[row].Cells[2].Value);
 
             }
@@ -221,7 +231,9 @@ namespace ExamPapers
                 date.Text.Trim(),
                 rowName.Text.Trim(),
                 columnName.Text.Trim(),
-                cmbSide.Text.Trim()
+                cmbSide.Text.Trim(),
+                qty.Text.Trim(),
+                cmbStatus.Text.Trim()
 
                 );
             DbPaper.UpdatePaper(paper, id);
@@ -245,7 +257,9 @@ namespace ExamPapers
                "date," +
                "rowName," +
                "columnName," +
-               "side FROM paper WHERE date LIKE '%" + txtSearch.Text + "%'", dtDataGridView);
+               "side," +
+               "qty," +
+               "status FROM paper WHERE date LIKE '%" + txtSearch.Text + "%'", dtDataGridView);
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -270,6 +284,13 @@ namespace ExamPapers
 
         private void Papers_Load(object sender, EventArgs e)
         {
+
+            cmbStatus.Items.Add("Available");
+            cmbStatus.Items.Add("Disposed");
+
+            cmbSearchStatus.Items.Add("Available");
+            cmbSearchStatus.Items.Add("Disposed");
+
             cmbMedium.Items.Add("English");
             cmbMedium.Items.Add("Sinhala");
             cmbMedium.Items.Add("Tamil");
@@ -514,7 +535,9 @@ namespace ExamPapers
                "date," +
                "rowName," +
                "columnName," +
-               "side FROM paper WHERE paperSetCode LIKE '%" + searchPaperSetCode.Text + "%'", dtDataGridView);
+              "side," +
+               "qty," +
+               "status FROM paper WHERE paperSetCode LIKE '%" + searchPaperSetCode.Text + "%'", dtDataGridView);
         }
 
         private void searchSubjectCode_TextChanged(object sender, EventArgs e)
@@ -532,7 +555,9 @@ namespace ExamPapers
                "date," +
                "rowName," +
                "columnName," +
-               "side FROM paper WHERE subjectCode LIKE '%" + searchSubjectCode.Text + "%'", dtDataGridView);
+               "side," +
+               "qty," +
+               "status FROM paper WHERE subjectCode LIKE '%" + searchSubjectCode.Text + "%'", dtDataGridView);
         }
 
         private void searchSubjectName_TextChanged(object sender, EventArgs e)
@@ -550,7 +575,9 @@ namespace ExamPapers
                "date," +
                "rowName," +
                "columnName," +
-               "side FROM paper WHERE subjectName LIKE '%" + searchSubjectName.Text + "%'", dtDataGridView);
+               "side," +
+               "qty," +
+               "status FROM paper WHERE subjectName LIKE '%" + searchSubjectName.Text + "%'", dtDataGridView);
         }
 
         private void cmbSearchMedium_SelectedIndexChanged(object sender, EventArgs e)
@@ -568,7 +595,9 @@ namespace ExamPapers
                "date," +
                "rowName," +
                "columnName," +
-               "side FROM paper WHERE medium LIKE '%" + cmbSearchMedium.Text + "%'", dtDataGridView);
+               "side," +
+               "qty," +
+               "status FROM paper WHERE medium LIKE '%" + cmbSearchMedium.Text + "%'", dtDataGridView);
         }
 
         private void cmbSearchFaculty_SelectedIndexChanged(object sender, EventArgs e)
@@ -587,7 +616,9 @@ namespace ExamPapers
                  "date," +
                  "rowName," +
                  "columnName," +
-                 "side FROM paper WHERE faculty LIKE '%" + cmbSearchFaculty.Text + "%'", dtDataGridView);
+               "side," +
+               "qty," +
+               "status FROM paper WHERE faculty LIKE '%" + cmbSearchFaculty.Text + "%'", dtDataGridView);
 
             if (cmbSearchFaculty.SelectedItem == "Faculty of Applied Sciences")
             {
@@ -672,7 +703,9 @@ namespace ExamPapers
                "date," +
                "rowName," +
                "columnName," +
-               "side FROM paper WHERE department LIKE '%" + cmbSearchDepartment.Text + "%'", dtDataGridView);
+               "side," +
+               "qty," +
+               "status FROM paper WHERE department LIKE '%" + cmbSearchDepartment.Text + "%'", dtDataGridView);
         }
 
         private void cmbSearchSemester_SelectedIndexChanged(object sender, EventArgs e)
@@ -690,7 +723,9 @@ namespace ExamPapers
                "date," +
                "rowName," +
                "columnName," +
-               "side FROM paper WHERE semester LIKE '%" + cmbSearchSemester.Text + "%'", dtDataGridView);
+               "side," +
+               "qty," +
+               "status FROM paper WHERE semester LIKE '%" + cmbSearchSemester.Text + "%'", dtDataGridView);
         }
 
         private void cmbSearchYear_SelectedIndexChanged(object sender, EventArgs e)
@@ -708,7 +743,9 @@ namespace ExamPapers
                "date," +
                "rowName," +
                "columnName," +
-               "side FROM paper WHERE year LIKE '%" + cmbSearchYear.Text + "%'", dtDataGridView);
+               "side," +
+               "qty," +
+               "status FROM paper WHERE year LIKE '%" + cmbSearchYear.Text + "%'", dtDataGridView);
         }
 
         private void searchBatchName_TextChanged(object sender, EventArgs e)
@@ -726,7 +763,9 @@ namespace ExamPapers
                "date," +
                "rowName," +
                "columnName," +
-               "side FROM paper WHERE batchName LIKE '%" + searchBatchName.Text + "%'", dtDataGridView);
+               "side," +
+               "qty," +
+               "status FROM paper WHERE batchName LIKE '%" + searchBatchName.Text + "%'", dtDataGridView);
         }
 
         private void searchRow_TextChanged(object sender, EventArgs e)
@@ -744,7 +783,9 @@ namespace ExamPapers
               "date," +
               "rowName," +
               "columnName," +
-              "side FROM paper WHERE rowName LIKE '%" + searchRow.Text + "%'", dtDataGridView);
+              "side," +
+               "qty," +
+               "status FROM paper WHERE rowName LIKE '%" + searchRow.Text + "%'", dtDataGridView);
         }
 
         private void searchColumn_TextChanged(object sender, EventArgs e)
@@ -762,7 +803,9 @@ namespace ExamPapers
              "date," +
              "rowName," +
              "columnName," +
-             "side FROM paper WHERE columnName LIKE '%" + searchColumn.Text + "%'", dtDataGridView);
+              "side," +
+               "qty," +
+               "status FROM paper WHERE columnName LIKE '%" + searchColumn.Text + "%'", dtDataGridView);
         }
 
         private void cmbSearchSide_SelectedIndexChanged(object sender, EventArgs e)
@@ -780,7 +823,9 @@ namespace ExamPapers
              "date," +
              "rowName," +
              "columnName," +
-             "side FROM paper WHERE side LIKE '%" + cmbSearchSide.Text + "%'", dtDataGridView);
+             "side," +
+               "qty," +
+               "status FROM paper WHERE side LIKE '%" + cmbSearchSide.Text + "%'", dtDataGridView);
         }
 
         private void btnDateRange_Click(object sender, EventArgs e)
@@ -814,12 +859,55 @@ namespace ExamPapers
              "date," +
              "rowName," +
              "columnName," +
-             "side FROM paper WHERE date BETWEEN '"+ fromDate.Text +"' AND '" + toDate.Text + "'", dtDataGridView);
+             "side," +
+               "qty," +
+               "status FROM paper WHERE date BETWEEN '" + fromDate.Text +"' AND '" + toDate.Text + "'", dtDataGridView);
         }
 
         private void fromDate_ValueChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void label29_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void preYears_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPreYears_Click(object sender, EventArgs e)
+        {
+            DateTime now = DateTime.Now;
+
+
+            int currentYear = Convert.ToInt32(DateTime.Now.ToString("yyyy"))- Convert.ToInt32(preYears.Text);
+            string currentYearString = currentYear.ToString();
+
+            string currentDate = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+            string priviousDate = DateTime.Now.ToString(currentYearString + "-MM-dd hh:mm:ss");
+
+            //MessageBox.Show(currentDate + priviousDate);
+
+          DbPaper.DisplayAndSearch("SELECT ID," +
+            "paperSetCode, " +
+            "subjectCode, " +
+            "subjectName," +
+            "medium," +
+            "faculty," +
+            "department," +
+            "semester," +
+            "year," +
+            "batchName," +
+            "date," +
+            "rowName," +
+            "columnName," +
+            "side," +
+              "qty," +
+              "status FROM paper WHERE date BETWEEN '" + priviousDate + "' AND '" + currentDate + "'", dtDataGridView);
         }
     }
 }
