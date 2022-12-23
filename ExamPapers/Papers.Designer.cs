@@ -104,6 +104,7 @@ namespace ExamPapers
             this.preYears = new System.Windows.Forms.TextBox();
             this.btnPreYears = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
+            this.btnData = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -460,6 +461,7 @@ namespace ExamPapers
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1339, 218);
             this.panel1.TabIndex = 41;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // cmbStatus
             // 
@@ -817,13 +819,23 @@ namespace ExamPapers
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(129, 491);
+            this.btnExport.Location = new System.Drawing.Point(29, 493);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(94, 29);
+            this.btnExport.Size = new System.Drawing.Size(125, 29);
             this.btnExport.TabIndex = 70;
             this.btnExport.Text = "Export";
             this.btnExport.UseVisualStyleBackColor = true;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
+            // btnData
+            // 
+            this.btnData.Location = new System.Drawing.Point(198, 491);
+            this.btnData.Name = "btnData";
+            this.btnData.Size = new System.Drawing.Size(125, 29);
+            this.btnData.TabIndex = 71;
+            this.btnData.Text = "Data";
+            this.btnData.UseVisualStyleBackColor = true;
+            this.btnData.Click += new System.EventHandler(this.btnData_Click);
             // 
             // Papers
             // 
@@ -831,6 +843,7 @@ namespace ExamPapers
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(1418, 760);
+            this.Controls.Add(this.btnData);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.btnPreYears);
             this.Controls.Add(this.preYears);
@@ -972,5 +985,6 @@ namespace ExamPapers
         private System.Windows.Forms.Button btnPreYears;
         private System.Windows.Forms.TextBox preYears;
         private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.Button btnData;
     }
 }

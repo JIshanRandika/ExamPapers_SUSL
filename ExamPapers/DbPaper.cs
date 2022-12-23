@@ -62,6 +62,32 @@ namespace ExamPapers
             con.Close();
         }
 
+        public static void AddFaculty(Faculty faculty)
+        {
+            string sql = "INSERT INTO faculty VALUES(NULL, @facultyName)";
+            MySqlConnection con = GetConnection();
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+            cmd.Parameters.Add("@facultyName", MySqlDbType.VarChar).Value = faculty.facultyName;
+       
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Added Successfully");
+            }
+
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Faculty not insert" + ex.Message);
+            }
+            con.Close();
+        }
+
+        public static void getFaculty(Faculty faculty)
+        {
+           
+        }
+
         public static void UpdatePaper(Paper paper, string id)
         {
             string sql = "UPDATE paper SET paperSetCode = @paperSetCode," +

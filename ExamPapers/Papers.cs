@@ -17,7 +17,7 @@ namespace ExamPapers
     public partial class Papers : Form
     {
 
-        
+        Data dataWindow = new Data();
 
         DataTable dt = new DataTable();
 
@@ -948,6 +948,16 @@ namespace ExamPapers
                 wb.Worksheets.Add(dt, "Customers");
                 wb.SaveAs(folderPath + "DataGridViewExport.xlsx");
             }
+        }
+
+        private void btnData_Click(object sender, EventArgs e)
+        {
+            dataWindow.Show();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
