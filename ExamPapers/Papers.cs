@@ -7,6 +7,11 @@ using System.Globalization;
 using System.Text;
 using System.Windows.Forms;
 
+using System.IO;
+using System.Data;
+using System.Reflection;
+using ClosedXML.Excel;
+
 namespace ExamPapers
 {
     public partial class Papers : Form
@@ -908,6 +913,41 @@ namespace ExamPapers
             "side," +
               "qty," +
               "status FROM paper WHERE date BETWEEN '" + priviousDate + "' AND '" + currentDate + "'", dtDataGridView);
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            //Creating DataTable
+            DataTable dt = new DataTable();
+
+            //Adding the Columns
+            foreach (DataGridViewColumn column in dtDataGridView.Columns)
+            { 
+               // dt.Columns.Add(column.HeaderText, column.ValueType);
+                dt.Columns.Add(column.HeaderText);
+            }
+
+            //Adding the Rows
+            foreach (DataGridViewRow row in dtDataGridView.Rows)
+            {
+                dt.Rows.Add();
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    dt.Rows[dt.Rows.Count - 1][cell.ColumnIndex] = cell.Value.ToString();
+                }
+            }
+
+            //Exporting to Excel
+            string folderPath = "C:\\Users\\ASUS\\Desktop\\";
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+            using (XLWorkbook wb = new XLWorkbook())
+            {
+                wb.Worksheets.Add(dt, "Customers");
+                wb.SaveAs(folderPath + "DataGridViewExport.xlsx");
+            }
         }
     }
 }

@@ -29,8 +29,8 @@ namespace ExamPapers
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Save = new System.Windows.Forms.Button();
             this.dtDataGridView = new System.Windows.Forms.DataGridView();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -103,6 +103,7 @@ namespace ExamPapers
             this.btnDateRange = new System.Windows.Forms.Button();
             this.preYears = new System.Windows.Forms.TextBox();
             this.btnPreYears = new System.Windows.Forms.Button();
+            this.btnExport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -141,11 +142,11 @@ namespace ExamPapers
             // 
             // Delete
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Red;
-            this.Delete.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Red;
+            this.Delete.DefaultCellStyle = dataGridViewCellStyle1;
             this.Delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Delete.HeaderText = "";
             this.Delete.MinimumWidth = 6;
@@ -157,11 +158,11 @@ namespace ExamPapers
             // 
             // Edit
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            this.Edit.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            this.Edit.DefaultCellStyle = dataGridViewCellStyle2;
             this.Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Edit.HeaderText = "";
             this.Edit.MinimumWidth = 6;
@@ -814,12 +815,23 @@ namespace ExamPapers
             this.btnPreYears.UseVisualStyleBackColor = true;
             this.btnPreYears.Click += new System.EventHandler(this.btnPreYears_Click);
             // 
+            // btnExport
+            // 
+            this.btnExport.Location = new System.Drawing.Point(129, 491);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(94, 29);
+            this.btnExport.TabIndex = 70;
+            this.btnExport.Text = "Export";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
             // Papers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(230)))));
             this.ClientSize = new System.Drawing.Size(1418, 760);
+            this.Controls.Add(this.btnExport);
             this.Controls.Add(this.btnPreYears);
             this.Controls.Add(this.preYears);
             this.Controls.Add(this.btnDateRange);
@@ -959,5 +971,6 @@ namespace ExamPapers
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Button btnPreYears;
         private System.Windows.Forms.TextBox preYears;
+        private System.Windows.Forms.Button btnExport;
     }
 }
