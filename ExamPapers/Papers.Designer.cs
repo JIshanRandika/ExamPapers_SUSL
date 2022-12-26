@@ -66,6 +66,8 @@ namespace ExamPapers
             this.cmbYear = new System.Windows.Forms.ComboBox();
             this.cmbSide = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label30 = new System.Windows.Forms.Label();
+            this.cmbDegree = new System.Windows.Forms.ComboBox();
             this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.label28 = new System.Windows.Forms.Label();
             this.qty = new System.Windows.Forms.TextBox();
@@ -251,7 +253,7 @@ namespace ExamPapers
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(493, 89);
+            this.label7.Location = new System.Drawing.Point(253, 78);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(59, 20);
             this.label7.TabIndex = 12;
@@ -261,7 +263,7 @@ namespace ExamPapers
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(909, 86);
+            this.label8.Location = new System.Drawing.Point(572, 75);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(94, 20);
             this.label8.TabIndex = 13;
@@ -387,16 +389,16 @@ namespace ExamPapers
             // cmbMedium
             // 
             this.cmbMedium.FormattingEnabled = true;
-            this.cmbMedium.Location = new System.Drawing.Point(220, 86);
+            this.cmbMedium.Location = new System.Drawing.Point(122, 72);
             this.cmbMedium.Name = "cmbMedium";
-            this.cmbMedium.Size = new System.Drawing.Size(248, 28);
+            this.cmbMedium.Size = new System.Drawing.Size(118, 28);
             this.cmbMedium.TabIndex = 34;
             this.cmbMedium.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // cmbfaculty
             // 
             this.cmbfaculty.FormattingEnabled = true;
-            this.cmbfaculty.Location = new System.Drawing.Point(641, 86);
+            this.cmbfaculty.Location = new System.Drawing.Point(318, 72);
             this.cmbfaculty.Name = "cmbfaculty";
             this.cmbfaculty.Size = new System.Drawing.Size(248, 28);
             this.cmbfaculty.TabIndex = 35;
@@ -405,7 +407,7 @@ namespace ExamPapers
             // cmbDepartment
             // 
             this.cmbDepartment.FormattingEnabled = true;
-            this.cmbDepartment.Location = new System.Drawing.Point(1053, 86);
+            this.cmbDepartment.Location = new System.Drawing.Point(672, 70);
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.Size = new System.Drawing.Size(248, 28);
             this.cmbDepartment.TabIndex = 36;
@@ -452,16 +454,41 @@ namespace ExamPapers
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.label30);
+            this.panel1.Controls.Add(this.cmbDegree);
             this.panel1.Controls.Add(this.cmbStatus);
             this.panel1.Controls.Add(this.label28);
             this.panel1.Controls.Add(this.qty);
             this.panel1.Controls.Add(this.label27);
             this.panel1.Controls.Add(this.paperSetCode);
+            this.panel1.Controls.Add(this.cmbMedium);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.cmbfaculty);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.cmbDepartment);
             this.panel1.Location = new System.Drawing.Point(29, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1339, 218);
             this.panel1.TabIndex = 41;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label30.Location = new System.Drawing.Point(943, 75);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(59, 20);
+            this.label30.TabIndex = 71;
+            this.label30.Text = "Degree";
+            // 
+            // cmbDegree
+            // 
+            this.cmbDegree.FormattingEnabled = true;
+            this.cmbDegree.Location = new System.Drawing.Point(1022, 70);
+            this.cmbDegree.Name = "cmbDegree";
+            this.cmbDegree.Size = new System.Drawing.Size(248, 28);
+            this.cmbDegree.TabIndex = 70;
             // 
             // cmbStatus
             // 
@@ -829,11 +856,11 @@ namespace ExamPapers
             // 
             // btnData
             // 
-            this.btnData.Location = new System.Drawing.Point(198, 491);
+            this.btnData.Location = new System.Drawing.Point(200, 492);
             this.btnData.Name = "btnData";
             this.btnData.Size = new System.Drawing.Size(125, 29);
             this.btnData.TabIndex = 71;
-            this.btnData.Text = "Data";
+            this.btnData.Text = "Edit Data";
             this.btnData.UseVisualStyleBackColor = true;
             this.btnData.Click += new System.EventHandler(this.btnData_Click);
             // 
@@ -877,9 +904,6 @@ namespace ExamPapers
             this.Controls.Add(this.cmbYear);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.cmbSemester);
-            this.Controls.Add(this.cmbDepartment);
-            this.Controls.Add(this.cmbfaculty);
-            this.Controls.Add(this.cmbMedium);
             this.Controls.Add(this.date);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.batchName);
@@ -887,8 +911,6 @@ namespace ExamPapers
             this.Controls.Add(this.subjectName);
             this.Controls.Add(this.subjectCode);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -896,6 +918,7 @@ namespace ExamPapers
             this.Controls.Add(this.dtDataGridView);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
+            this.MaximizeBox = false;
             this.Name = "Papers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Papers";
@@ -986,5 +1009,7 @@ namespace ExamPapers
         private System.Windows.Forms.TextBox preYears;
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Button btnData;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.ComboBox cmbDegree;
     }
 }

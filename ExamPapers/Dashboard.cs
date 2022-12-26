@@ -12,7 +12,7 @@ namespace ExamPapers
 {
     public partial class Dashboard : Form
     {
-        Papers anps = new Papers();
+        
         public Dashboard()
         {
             InitializeComponent();
@@ -20,7 +20,9 @@ namespace ExamPapers
         }
 
         private void button1_Click(object sender, EventArgs e)
+
         {
+            Papers anps = new Papers();
             anps.Show();
         }
 
@@ -30,6 +32,11 @@ namespace ExamPapers
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Dashboard_Load(object sender, EventArgs e)
         {
 
         }

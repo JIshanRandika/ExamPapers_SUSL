@@ -96,9 +96,11 @@ namespace ExamPapers
             this.ClientSize = new System.Drawing.Size(836, 538);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
+            this.MaximizeBox = false;
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Dashboard_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

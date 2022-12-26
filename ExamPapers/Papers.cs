@@ -17,7 +17,7 @@ namespace ExamPapers
     public partial class Papers : Form
     {
 
-        Data dataWindow = new Data();
+        
 
         DataTable dt = new DataTable();
 
@@ -60,6 +60,7 @@ namespace ExamPapers
                 = cmbSide.Text
                 = qty.Text
                 = cmbStatus.Text
+                = cmbDegree.Text
                 = string.Empty;
         }
 
@@ -95,7 +96,8 @@ namespace ExamPapers
                 columnName.Text.Trim(),
                 cmbSide.Text.Trim(),
                 qty.Text.Trim(),
-                cmbStatus.Text.Trim()
+                cmbStatus.Text.Trim(),
+                cmbDegree.Text.Trim()
 
                 );
 
@@ -123,6 +125,7 @@ namespace ExamPapers
             cmbSide.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[15].Value);
             qty.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[16].Value);
             cmbStatus.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[17].Value);
+            cmbDegree.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[15].Value);
             id = Convert.ToString(dtDataGridView.Rows[row].Cells[2].Value);
         }
         public void Display()
@@ -152,7 +155,8 @@ namespace ExamPapers
                 "columnName," +
                 "side," +
                 "qty," +
-                "status" +
+                "status," +
+                "degreeName" +
                 " FROM paper", dtDataGridView);
 
         }
@@ -198,6 +202,7 @@ namespace ExamPapers
                  cmbSide.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[15].Value);
                  qty.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[16].Value);
                  cmbStatus.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[17].Value);
+                 cmbDegree.Text = Convert.ToString(dtDataGridView.Rows[row].Cells[18].Value);
                  id = Convert.ToString(dtDataGridView.Rows[row].Cells[2].Value);
 
             }
@@ -227,7 +232,8 @@ namespace ExamPapers
                 columnName.Text.Trim(),
                 cmbSide.Text.Trim(),
                 qty.Text.Trim(),
-                cmbStatus.Text.Trim()
+                cmbStatus.Text.Trim(),
+                cmbDegree.Text.Trim()
 
                 );
             DbPaper.UpdatePaper(paper, id);
@@ -253,7 +259,8 @@ namespace ExamPapers
                "columnName," +
                "side," +
                "qty," +
-               "status FROM paper WHERE date LIKE '%" + txtSearch.Text + "%'", dtDataGridView);
+               "status," +
+               "degreeName FROM paper WHERE date LIKE '%" + txtSearch.Text + "%'", dtDataGridView);
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -343,7 +350,24 @@ namespace ExamPapers
 
         private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
+            cmbDegree.Items.Clear();
+
+
+            string query2 = "select degreeName from degree WHERE departmentName = '" + cmbDepartment.Text.ToString() + "'";
+            MySql.Data.MySqlClient.MySqlConnection con = DbPaper.GetConnection();
+            MySql.Data.MySqlClient.MySqlCommand cmd2 = new MySql.Data.MySqlClient.MySqlCommand(query2, con);
+
+            cmd2.CommandText = query2;
+            //con.Open(); 
+            MySql.Data.MySqlClient.MySqlDataReader drd = cmd2.ExecuteReader();
+
+
+            while (drd.Read())
+            {
+                cmbDegree.Items.Add(drd["degreeName"].ToString());
+
+
+            }
         }
 
         private void cmbfaculty_SelectedIndexChanged(object sender, EventArgs e)
@@ -548,7 +572,8 @@ namespace ExamPapers
                "columnName," +
               "side," +
                "qty," +
-               "status FROM paper WHERE paperSetCode LIKE '%" + searchPaperSetCode.Text + "%'", dtDataGridView);
+               "status," +
+               "degreeName FROM paper WHERE paperSetCode LIKE '%" + searchPaperSetCode.Text + "%'", dtDataGridView);
         }
 
         private void searchSubjectCode_TextChanged(object sender, EventArgs e)
@@ -568,7 +593,8 @@ namespace ExamPapers
                "columnName," +
                "side," +
                "qty," +
-               "status FROM paper WHERE subjectCode LIKE '%" + searchSubjectCode.Text + "%'", dtDataGridView);
+               "status," +
+               "degreeName FROM paper WHERE subjectCode LIKE '%" + searchSubjectCode.Text + "%'", dtDataGridView);
         }
 
         private void searchSubjectName_TextChanged(object sender, EventArgs e)
@@ -588,7 +614,8 @@ namespace ExamPapers
                "columnName," +
                "side," +
                "qty," +
-               "status FROM paper WHERE subjectName LIKE '%" + searchSubjectName.Text + "%'", dtDataGridView);
+               "status," +
+               "degreeName FROM paper WHERE subjectName LIKE '%" + searchSubjectName.Text + "%'", dtDataGridView);
         }
 
         private void cmbSearchMedium_SelectedIndexChanged(object sender, EventArgs e)
@@ -608,7 +635,8 @@ namespace ExamPapers
                "columnName," +
                "side," +
                "qty," +
-               "status FROM paper WHERE medium LIKE '%" + cmbSearchMedium.Text + "%'", dtDataGridView);
+               "status," +
+               "degreeName FROM paper WHERE medium LIKE '%" + cmbSearchMedium.Text + "%'", dtDataGridView);
         }
 
         private void cmbSearchFaculty_SelectedIndexChanged(object sender, EventArgs e)
@@ -629,7 +657,8 @@ namespace ExamPapers
                  "columnName," +
                "side," +
                "qty," +
-               "status FROM paper WHERE faculty LIKE '%" + cmbSearchFaculty.Text + "%'", dtDataGridView);
+               "status," +
+               "degreeName FROM paper WHERE faculty LIKE '%" + cmbSearchFaculty.Text + "%'", dtDataGridView);
 
             cmbSearchDepartment.Items.Clear();
 
@@ -735,7 +764,8 @@ namespace ExamPapers
                "columnName," +
                "side," +
                "qty," +
-               "status FROM paper WHERE department LIKE '%" + cmbSearchDepartment.Text + "%'", dtDataGridView);
+               "status," +
+               "degreeName FROM paper WHERE department LIKE '%" + cmbSearchDepartment.Text + "%'", dtDataGridView);
         }
 
         private void cmbSearchSemester_SelectedIndexChanged(object sender, EventArgs e)
@@ -755,7 +785,8 @@ namespace ExamPapers
                "columnName," +
                "side," +
                "qty," +
-               "status FROM paper WHERE semester LIKE '%" + cmbSearchSemester.Text + "%'", dtDataGridView);
+               "status," +
+               "degreeName FROM paper WHERE semester LIKE '%" + cmbSearchSemester.Text + "%'", dtDataGridView);
         }
 
         private void cmbSearchYear_SelectedIndexChanged(object sender, EventArgs e)
@@ -775,7 +806,8 @@ namespace ExamPapers
                "columnName," +
                "side," +
                "qty," +
-               "status FROM paper WHERE year LIKE '%" + cmbSearchYear.Text + "%'", dtDataGridView);
+               "status," +
+               "degreeName FROM paper WHERE year LIKE '%" + cmbSearchYear.Text + "%'", dtDataGridView);
         }
 
         private void searchBatchName_TextChanged(object sender, EventArgs e)
@@ -795,7 +827,8 @@ namespace ExamPapers
                "columnName," +
                "side," +
                "qty," +
-               "status FROM paper WHERE batchName LIKE '%" + searchBatchName.Text + "%'", dtDataGridView);
+               "status," +
+               "degreeName FROM paper WHERE batchName LIKE '%" + searchBatchName.Text + "%'", dtDataGridView);
         }
 
         private void searchRow_TextChanged(object sender, EventArgs e)
@@ -815,7 +848,8 @@ namespace ExamPapers
               "columnName," +
               "side," +
                "qty," +
-               "status FROM paper WHERE rowName LIKE '%" + searchRow.Text + "%'", dtDataGridView);
+               "status," +
+               "degreeName FROM paper WHERE rowName LIKE '%" + searchRow.Text + "%'", dtDataGridView);
         }
 
         private void searchColumn_TextChanged(object sender, EventArgs e)
@@ -835,7 +869,8 @@ namespace ExamPapers
              "columnName," +
               "side," +
                "qty," +
-               "status FROM paper WHERE columnName LIKE '%" + searchColumn.Text + "%'", dtDataGridView);
+               "status," +
+               "degreeName FROM paper WHERE columnName LIKE '%" + searchColumn.Text + "%'", dtDataGridView);
         }
 
         private void cmbSearchSide_SelectedIndexChanged(object sender, EventArgs e)
@@ -855,7 +890,8 @@ namespace ExamPapers
              "columnName," +
              "side," +
                "qty," +
-               "status FROM paper WHERE side LIKE '%" + cmbSearchSide.Text + "%'", dtDataGridView);
+               "status," +
+               "degreeName FROM paper WHERE side LIKE '%" + cmbSearchSide.Text + "%'", dtDataGridView);
         }
 
         private void btnDateRange_Click(object sender, EventArgs e)
@@ -891,7 +927,8 @@ namespace ExamPapers
              "columnName," +
              "side," +
                "qty," +
-               "status FROM paper WHERE date BETWEEN '" + fromDate.Text +"' AND '" + toDate.Text + "'", dtDataGridView);
+               "status," +
+               "degreeName FROM paper WHERE date BETWEEN '" + fromDate.Text +"' AND '" + toDate.Text + "'", dtDataGridView);
         }
 
         private void fromDate_ValueChanged(object sender, EventArgs e)
@@ -937,7 +974,8 @@ namespace ExamPapers
             "columnName," +
             "side," +
               "qty," +
-              "status FROM paper WHERE date BETWEEN '" + priviousDate + "' AND '" + currentDate + "'", dtDataGridView);
+               "status," +
+               "degreeName FROM paper WHERE date BETWEEN '" + priviousDate + "' AND '" + currentDate + "'", dtDataGridView);
         }
 
         private void btnExport_Click(object sender, EventArgs e)
@@ -977,6 +1015,7 @@ namespace ExamPapers
 
         private void btnData_Click(object sender, EventArgs e)
         {
+            Data dataWindow = new Data();
             dataWindow.Show();
         }
 

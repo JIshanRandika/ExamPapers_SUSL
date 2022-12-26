@@ -30,7 +30,7 @@ namespace ExamPapers
 
         public static void AddPaper(Paper paper)
         {
-            string sql = "INSERT INTO paper VALUES(NULL, @paperSetCode, @subjectCode, @subjectName, @medium, @faculty, @department, @semester, @batchName, @date, @rowName, @columnName, @side, @year, @qty, @status)";
+            string sql = "INSERT INTO paper VALUES(NULL, @paperSetCode, @subjectCode, @subjectName, @medium, @faculty, @department, @semester, @batchName, @date, @rowName, @columnName, @side, @year, @qty, @status, @degreeName)";
             MySqlConnection con = GetConnection();
             MySqlCommand cmd = new MySqlCommand(sql, con);
             cmd.Parameters.Add("@paperSetCode", MySqlDbType.VarChar).Value = paper.paperSetCode;
@@ -48,6 +48,7 @@ namespace ExamPapers
             cmd.Parameters.Add("@year", MySqlDbType.VarChar).Value = paper.year;
             cmd.Parameters.Add("@qty", MySqlDbType.VarChar).Value = paper.qty;
             cmd.Parameters.Add("@status", MySqlDbType.VarChar).Value = paper.status;
+            cmd.Parameters.Add("@degreeName", MySqlDbType.VarChar).Value = paper.status;
 
             try
             {
@@ -148,7 +149,8 @@ namespace ExamPapers
                 "side = @side," +
                 "year = @year," +
                 "qty = @qty," +
-                "status = @status" +
+                "status = @status," +
+                "degreeName = @degreeName" +
                 " WHERE ID=@ID";
             MySqlConnection con = GetConnection();
             MySqlCommand cmd = new MySqlCommand(sql, con);
@@ -168,6 +170,7 @@ namespace ExamPapers
             cmd.Parameters.Add("@year", MySqlDbType.VarChar).Value = paper.year;
             cmd.Parameters.Add("@qty", MySqlDbType.VarChar).Value = paper.qty;
             cmd.Parameters.Add("@status", MySqlDbType.VarChar).Value = paper.status;
+            cmd.Parameters.Add("@degreeName", MySqlDbType.VarChar).Value = paper.degreeName;
             cmd.Parameters.Add("@ID", MySqlDbType.VarChar).Value = id;
             try
             {

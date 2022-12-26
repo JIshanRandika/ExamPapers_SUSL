@@ -21,8 +21,9 @@ namespace ExamPapers
         public string side { get; set; }
         public string qty { get; set; }
         public string status { get; set; }
+        public string degreeName { get; set; }
 
-        public Paper(string paperSetCode, string subjectCode, string subjectName, string medium, string faculty, string department, string semester, string year, string batchName, string date, string rowName, string columnName, string side, string qty, string status)
+        public Paper(string paperSetCode, string subjectCode, string subjectName, string medium, string faculty, string department, string semester, string year, string batchName, string date, string rowName, string columnName, string side, string qty, string status, string degreeName)
         {
             this.paperSetCode = paperSetCode;
             this.subjectCode = subjectCode;
@@ -39,6 +40,7 @@ namespace ExamPapers
             this.side = side;
             this.qty = qty;
             this.status = status;
+            this.degreeName = degreeName;
         }
     }
 }
