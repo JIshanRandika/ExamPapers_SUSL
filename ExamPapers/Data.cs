@@ -35,7 +35,7 @@ namespace ExamPapers
         {
            
 
-            DbPaper.DisplayAndSearchFaculty("SELECT ID," +
+            DbPaper.DisplayAndSearch("SELECT ID," +
                 "facultyName" +
                 " FROM faculty", dtgFaculty);
 
@@ -44,6 +44,7 @@ namespace ExamPapers
         private void Data_Load(object sender, EventArgs e)
         {
             string query = "select facultyName from faculty";
+            string query2 = "select departmentName from department";
             MySql.Data.MySqlClient.MySqlConnection con = DbPaper.GetConnection();
             MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(query, con);
             cmd.CommandText = query;
@@ -52,8 +53,21 @@ namespace ExamPapers
             while (drd.Read())
             {
                 cmbFaculty.Items.Add(drd["facultyName"].ToString());
+
+                cmbFacultyDe.Items.Add(drd["facultyName"].ToString());
                 
             }
+        }
+
+        private void btnAddDepartment_Click(object sender, EventArgs e)
+        {
+            Department department = new Department(
+                            facultyName.Text.Trim(),
+                            departmentName.Text.Trim()
+
+                            );
+
+            DbPaper.AddDepartment(department);
         }
     }
 }

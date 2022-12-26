@@ -34,6 +34,10 @@ namespace ExamPapers
             this.btnAddFaculty = new System.Windows.Forms.Button();
             this.cmbFaculty = new System.Windows.Forms.ComboBox();
             this.dtgFaculty = new System.Windows.Forms.DataGridView();
+            this.departmentName = new System.Windows.Forms.TextBox();
+            this.btnAddDepartment = new System.Windows.Forms.Button();
+            this.cmbFacultyDe = new System.Windows.Forms.ComboBox();
+            this.cmbDepartment = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgFaculty)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,7 +70,7 @@ namespace ExamPapers
             // cmbFaculty
             // 
             this.cmbFaculty.FormattingEnabled = true;
-            this.cmbFaculty.Location = new System.Drawing.Point(164, 226);
+            this.cmbFaculty.Location = new System.Drawing.Point(60, 226);
             this.cmbFaculty.Name = "cmbFaculty";
             this.cmbFaculty.Size = new System.Drawing.Size(151, 28);
             this.cmbFaculty.TabIndex = 3;
@@ -81,11 +85,48 @@ namespace ExamPapers
             this.dtgFaculty.Size = new System.Drawing.Size(522, 123);
             this.dtgFaculty.TabIndex = 4;
             // 
+            // departmentName
+            // 
+            this.departmentName.Location = new System.Drawing.Point(238, 227);
+            this.departmentName.Name = "departmentName";
+            this.departmentName.Size = new System.Drawing.Size(182, 27);
+            this.departmentName.TabIndex = 5;
+            // 
+            // btnAddDepartment
+            // 
+            this.btnAddDepartment.Location = new System.Drawing.Point(462, 225);
+            this.btnAddDepartment.Name = "btnAddDepartment";
+            this.btnAddDepartment.Size = new System.Drawing.Size(177, 29);
+            this.btnAddDepartment.TabIndex = 6;
+            this.btnAddDepartment.Text = "Add Department";
+            this.btnAddDepartment.UseVisualStyleBackColor = true;
+            this.btnAddDepartment.Click += new System.EventHandler(this.btnAddDepartment_Click);
+            // 
+            // cmbFacultyDe
+            // 
+            this.cmbFacultyDe.FormattingEnabled = true;
+            this.cmbFacultyDe.Location = new System.Drawing.Point(60, 294);
+            this.cmbFacultyDe.Name = "cmbFacultyDe";
+            this.cmbFacultyDe.Size = new System.Drawing.Size(151, 28);
+            this.cmbFacultyDe.TabIndex = 7;
+            // 
+            // cmbDepartment
+            // 
+            this.cmbDepartment.FormattingEnabled = true;
+            this.cmbDepartment.Location = new System.Drawing.Point(238, 294);
+            this.cmbDepartment.Name = "cmbDepartment";
+            this.cmbDepartment.Size = new System.Drawing.Size(151, 28);
+            this.cmbDepartment.TabIndex = 8;
+            // 
             // Data
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cmbDepartment);
+            this.Controls.Add(this.cmbFacultyDe);
+            this.Controls.Add(this.btnAddDepartment);
+            this.Controls.Add(this.departmentName);
             this.Controls.Add(this.dtgFaculty);
             this.Controls.Add(this.cmbFaculty);
             this.Controls.Add(this.btnAddFaculty);
@@ -107,5 +148,9 @@ namespace ExamPapers
         private System.Windows.Forms.Button btnAddFaculty;
         private System.Windows.Forms.ComboBox cmbFaculty;
         private System.Windows.Forms.DataGridView dtgFaculty;
+        private System.Windows.Forms.TextBox departmentName;
+        private System.Windows.Forms.Button btnAddDepartment;
+        private System.Windows.Forms.ComboBox cmbFacultyDe;
+        private System.Windows.Forms.ComboBox cmbDepartment;
     }
 }

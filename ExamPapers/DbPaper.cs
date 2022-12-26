@@ -83,6 +83,28 @@ namespace ExamPapers
             con.Close();
         }
 
+        public static void AddDepartment(Department department)
+        {
+            string sql = "INSERT INTO department VALUES(NULL, @facultyName, @departmentName)";
+            MySqlConnection con = GetConnection();
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+            cmd.Parameters.Add("@facultyName", MySqlDbType.VarChar).Value = department.facultyName;
+            cmd.Parameters.Add("@departmentName", MySqlDbType.VarChar).Value = department.departmentName;
+
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Added Successfully");
+            }
+
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Department not insert" + ex.Message);
+            }
+            con.Close();
+        }
+
         public static void getFaculty(Faculty faculty)
         {
            
@@ -161,6 +183,29 @@ namespace ExamPapers
             con.Close();
 
         }
+        public static void UpdateDepartment(Department department, string id)
+        {
+            string sql = "UPDATE department SET facultyName = @facultyName, departmentName = @departmentName" +
+                " WHERE ID=@ID";
+            MySqlConnection con = GetConnection();
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.Parameters.Add("@facultyName", MySqlDbType.VarChar).Value = department.facultyName;
+            cmd.Parameters.Add("@departmentName", MySqlDbType.VarChar).Value = department.facultyName;
+            cmd.Parameters.Add("@ID", MySqlDbType.VarChar).Value = id;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Updated Successfully");
+            }
+
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Department not update" + ex.Message);
+            }
+            con.Close();
+
+        }
 
         public static void DeletePaper(string id)
         {
@@ -204,6 +249,26 @@ namespace ExamPapers
             con.Close();
         }
 
+        public static void DeleteDepartment(string id)
+        {
+            string sql = "DELETE FROM department WHERE ID = @ID";
+            MySqlConnection con = GetConnection();
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.Parameters.Add("@ID", MySqlDbType.VarChar).Value = id;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Deleted Successfully");
+            }
+
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Department not delete" + ex.Message);
+            }
+            con.Close();
+        }
         public static void DisplayAndSearch (string query, DataGridView dgv)
         {
             string sql = query;
@@ -218,19 +283,7 @@ namespace ExamPapers
 
         }
 
-        public static void DisplayAndSearchFaculty(string query, DataGridView dgv)
-        {
-            string sql = query;
-            MySqlConnection con = GetConnection();
-            MySqlCommand cmd = new MySqlCommand(sql, con);
-            MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
-            DataTable tbl = new DataTable();
-            adp.Fill(tbl);
-            dgv.DataSource = tbl;
-            con.Close();
-
-
-        }
+       
 
 
 
