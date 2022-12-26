@@ -85,7 +85,7 @@ namespace ExamPapers
 
         public static void AddDepartment(Department department)
         {
-            string sql = "INSERT INTO department VALUES(NULL, @facultyName, @departmentName)";
+            string sql = "INSERT INTO department VALUES(NULL, @facultyName, @departmentName, (SELECT ID FROM faculty WHERE facultyName=@facultyName))";
             MySqlConnection con = GetConnection();
             MySqlCommand cmd = new MySqlCommand(sql, con);
             cmd.Parameters.Add("@facultyName", MySqlDbType.VarChar).Value = department.facultyName;
@@ -101,6 +101,28 @@ namespace ExamPapers
             catch (MySqlException ex)
             {
                 MessageBox.Show("Department not insert" + ex.Message);
+            }
+            con.Close();
+        }
+        public static void AddDegree(Degree degree)
+        {
+            string sql = "INSERT INTO degree VALUES(NULL, @facultyName, @departmentName, @degreeName)";
+            MySqlConnection con = GetConnection();
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+            cmd.Parameters.Add("@facultyName", MySqlDbType.VarChar).Value = degree.facultyName;
+            cmd.Parameters.Add("@departmentName", MySqlDbType.VarChar).Value = degree.departmentName;
+            cmd.Parameters.Add("@degreeName", MySqlDbType.VarChar).Value = degree.degreeName;
+
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Added Successfully");
+            }
+
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Degree not insert" + ex.Message);
             }
             con.Close();
         }
@@ -165,6 +187,7 @@ namespace ExamPapers
         {
             string sql = "UPDATE faculty SET facultyName = @facultyName" +
                 " WHERE ID=@ID";
+            MessageBox.Show(id);
             MySqlConnection con = GetConnection();
             MySqlCommand cmd = new MySqlCommand(sql, con);
             cmd.CommandType = System.Data.CommandType.Text;
@@ -173,7 +196,7 @@ namespace ExamPapers
             try
             {
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Updated Successfully");
+                MessageBox.Show("Faculty Updated Successfully");
             }
 
             catch (MySqlException ex)
@@ -191,7 +214,31 @@ namespace ExamPapers
             MySqlCommand cmd = new MySqlCommand(sql, con);
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.Parameters.Add("@facultyName", MySqlDbType.VarChar).Value = department.facultyName;
-            cmd.Parameters.Add("@departmentName", MySqlDbType.VarChar).Value = department.facultyName;
+            cmd.Parameters.Add("@departmentName", MySqlDbType.VarChar).Value = department.departmentName;
+            cmd.Parameters.Add("@ID", MySqlDbType.VarChar).Value = id;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Updated Successfully");
+            }
+
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Department not update" + ex.Message);
+            }
+            con.Close();
+
+        }
+        public static void UpdateDegree(Degree degree, string id)
+        {
+            string sql = "UPDATE degree SET facultyName = @facultyName, departmentName = @departmentName, degreeName = @degreeName" +
+                " WHERE ID=@ID";
+            MySqlConnection con = GetConnection();
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.Parameters.Add("@facultyName", MySqlDbType.VarChar).Value = degree.facultyName;
+            cmd.Parameters.Add("@departmentName", MySqlDbType.VarChar).Value = degree.departmentName;
+            cmd.Parameters.Add("@degreeName", MySqlDbType.VarChar).Value = degree.degreeName;
             cmd.Parameters.Add("@ID", MySqlDbType.VarChar).Value = id;
             try
             {
@@ -266,6 +313,26 @@ namespace ExamPapers
             catch (MySqlException ex)
             {
                 MessageBox.Show("Department not delete" + ex.Message);
+            }
+            con.Close();
+        }
+        public static void DeleteDegree(string id)
+        {
+            string sql = "DELETE FROM degree WHERE ID = @ID";
+            MySqlConnection con = GetConnection();
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.Parameters.Add("@ID", MySqlDbType.VarChar).Value = id;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Deleted Successfully");
+            }
+
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Degree not delete" + ex.Message);
             }
             con.Close();
         }

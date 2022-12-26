@@ -175,25 +175,12 @@ namespace ExamPapers
                     Display();
                 }
             }
+            //Edit
             if (e.ColumnIndex == 1)
             {
 
                 int row = e.RowIndex;
-                /// fill(row);
-                /// 
-
-
-
-
-                /* DataGridViewRow row = dtDataGridView.Rows[e.RowIndex];
-                 paperSetCode.Text = row.Cells["paperSetCode"].Value.ToString();
-                 subjectCode.Text = row.Cells["subjectCode"].Value.ToString();*/
-
-                //DataGridViewRow row = dtDataGridView.Rows[e.RowIndex];
-
-                // paperSetCode.Text = row.Cells[3].Value.ToString();
-                //subjectCode.Text = row.Cells[4].Value.ToString();
-
+                
                
 
                 paperSetCode.Text = dtDataGridView.Rows[row].Cells[3].Value.ToString();
@@ -361,11 +348,28 @@ namespace ExamPapers
 
         private void cmbfaculty_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cmbDepartment.Items.Clear();
+
+
+            string query2 = "select departmentName from department WHERE facultyName = '" + cmbfaculty.Text.ToString() + "'";
+            MySql.Data.MySqlClient.MySqlConnection con = DbPaper.GetConnection();
+            MySql.Data.MySqlClient.MySqlCommand cmd2 = new MySql.Data.MySqlClient.MySqlCommand(query2, con);
+
+            cmd2.CommandText = query2;
+            //con.Open();
+            MySql.Data.MySqlClient.MySqlDataReader drd = cmd2.ExecuteReader();
+
+
+            while (drd.Read())
+            {
+                cmbDepartment.Items.Add(drd["departmentName"].ToString());
+
+
+            }
 
 
 
-
-            if (cmbfaculty.SelectedItem == "Faculty of Applied Sciences")
+           /* if (cmbfaculty.SelectedItem == "Faculty of Applied Sciences")
             {
                 cmbDepartment.Items.Clear();
                 cmbDepartment.Items.Add("Department of Computing and Information System");
@@ -430,7 +434,7 @@ namespace ExamPapers
                 cmbDepartment.Items.Add("Department of Obstetrics And Gynaecology");
                 cmbDepartment.Items.Add("Department of Paediatrics");
 
-            }
+            }*/
 
         }
 
@@ -627,7 +631,26 @@ namespace ExamPapers
                "qty," +
                "status FROM paper WHERE faculty LIKE '%" + cmbSearchFaculty.Text + "%'", dtDataGridView);
 
-            if (cmbSearchFaculty.SelectedItem == "Faculty of Applied Sciences")
+            cmbSearchDepartment.Items.Clear();
+
+
+            string query2 = "select departmentName from department WHERE facultyName = '" + cmbSearchFaculty.Text.ToString() + "'";
+            MySql.Data.MySqlClient.MySqlConnection con = DbPaper.GetConnection();
+            MySql.Data.MySqlClient.MySqlCommand cmd2 = new MySql.Data.MySqlClient.MySqlCommand(query2, con);
+
+            cmd2.CommandText = query2;
+            //con.Open();
+            MySql.Data.MySqlClient.MySqlDataReader drd = cmd2.ExecuteReader();
+
+
+            while (drd.Read())
+            {
+                cmbSearchDepartment.Items.Add(drd["departmentName"].ToString());
+
+
+            }
+
+           /* if (cmbSearchFaculty.SelectedItem == "Faculty of Applied Sciences")
             {
                 cmbSearchDepartment.Items.Clear();
                 cmbSearchDepartment.Items.Add("Department of Computing and Information System");
@@ -692,7 +715,7 @@ namespace ExamPapers
                 cmbSearchDepartment.Items.Add("Department of Obstetrics And Gynaecology");
                 cmbSearchDepartment.Items.Add("Department of Paediatrics");
 
-            }
+            }*/
         }
 
         private void cmbSearchDepartment_SelectedIndexChanged(object sender, EventArgs e)
