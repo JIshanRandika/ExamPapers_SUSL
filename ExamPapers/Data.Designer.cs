@@ -33,6 +33,8 @@ namespace ExamPapers
             this.label1 = new System.Windows.Forms.Label();
             this.btnAddFaculty = new System.Windows.Forms.Button();
             this.cmbFaculty = new System.Windows.Forms.ComboBox();
+            this.dtgFaculty = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgFaculty)).BeginInit();
             this.SuspendLayout();
             // 
             // facultyName
@@ -64,16 +66,27 @@ namespace ExamPapers
             // cmbFaculty
             // 
             this.cmbFaculty.FormattingEnabled = true;
-            this.cmbFaculty.Location = new System.Drawing.Point(164, 79);
+            this.cmbFaculty.Location = new System.Drawing.Point(164, 226);
             this.cmbFaculty.Name = "cmbFaculty";
             this.cmbFaculty.Size = new System.Drawing.Size(151, 28);
             this.cmbFaculty.TabIndex = 3;
+            // 
+            // dtgFaculty
+            // 
+            this.dtgFaculty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgFaculty.Location = new System.Drawing.Point(60, 66);
+            this.dtgFaculty.Name = "dtgFaculty";
+            this.dtgFaculty.RowHeadersWidth = 51;
+            this.dtgFaculty.RowTemplate.Height = 29;
+            this.dtgFaculty.Size = new System.Drawing.Size(522, 123);
+            this.dtgFaculty.TabIndex = 4;
             // 
             // Data
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dtgFaculty);
             this.Controls.Add(this.cmbFaculty);
             this.Controls.Add(this.btnAddFaculty);
             this.Controls.Add(this.label1);
@@ -81,6 +94,7 @@ namespace ExamPapers
             this.Name = "Data";
             this.Text = "Data";
             this.Load += new System.EventHandler(this.Data_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgFaculty)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -92,5 +106,6 @@ namespace ExamPapers
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAddFaculty;
         private System.Windows.Forms.ComboBox cmbFaculty;
+        private System.Windows.Forms.DataGridView dtgFaculty;
     }
 }

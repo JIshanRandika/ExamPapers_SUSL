@@ -139,6 +139,29 @@ namespace ExamPapers
 
         }
 
+        public static void UpdateFaculty(Faculty faculty, string id)
+        {
+            string sql = "UPDATE faculty SET facultyName = @facultyName" +
+                " WHERE ID=@ID";
+            MySqlConnection con = GetConnection();
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.Parameters.Add("@facultyName", MySqlDbType.VarChar).Value = faculty.facultyName;
+            cmd.Parameters.Add("@ID", MySqlDbType.VarChar).Value = id;
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Updated Successfully");
+            }
+
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Faculty not update" + ex.Message);
+            }
+            con.Close();
+
+        }
+
         public static void DeletePaper(string id)
         {
             string sql = "DELETE FROM paper WHERE ID = @ID";
@@ -160,6 +183,27 @@ namespace ExamPapers
             con.Close();
         }
 
+        public static void DeleteFaculty(string id)
+        {
+            string sql = "DELETE FROM faculty WHERE ID = @ID";
+            MySqlConnection con = GetConnection();
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.Parameters.Add("@ID", MySqlDbType.VarChar).Value = id;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Deleted Successfully");
+            }
+
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Faculty not delete" + ex.Message);
+            }
+            con.Close();
+        }
+
         public static void DisplayAndSearch (string query, DataGridView dgv)
         {
             string sql = query;
@@ -174,7 +218,21 @@ namespace ExamPapers
 
         }
 
-       
+        public static void DisplayAndSearchFaculty(string query, DataGridView dgv)
+        {
+            string sql = query;
+            MySqlConnection con = GetConnection();
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+            MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+            DataTable tbl = new DataTable();
+            adp.Fill(tbl);
+            dgv.DataSource = tbl;
+            con.Close();
+
+
+        }
+
+
 
 
     }

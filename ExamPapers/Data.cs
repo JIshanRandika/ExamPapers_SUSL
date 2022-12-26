@@ -13,6 +13,7 @@ namespace ExamPapers
         public Data()
         {
             InitializeComponent();
+            Display();
         }
 
         private void btnAddFaculty_Click(object sender, EventArgs e)
@@ -24,6 +25,20 @@ namespace ExamPapers
                 );
 
             DbPaper.AddFaculty(faculty);
+        }
+        public void Clear()
+        {
+            facultyName.Text
+                = string.Empty;
+        }
+        public void Display()
+        {
+           
+
+            DbPaper.DisplayAndSearchFaculty("SELECT ID," +
+                "facultyName" +
+                " FROM faculty", dtgFaculty);
+
         }
 
         private void Data_Load(object sender, EventArgs e)
