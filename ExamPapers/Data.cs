@@ -47,15 +47,27 @@ namespace ExamPapers
             string query2 = "select departmentName from department";
             MySql.Data.MySqlClient.MySqlConnection con = DbPaper.GetConnection();
             MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(query, con);
+            MySql.Data.MySqlClient.MySqlCommand cmd2 = new MySql.Data.MySqlClient.MySqlCommand(query2, con);
             cmd.CommandText = query;
+            cmd2.CommandText = query2;
             //con.Open();
             MySql.Data.MySqlClient.MySqlDataReader drd = cmd.ExecuteReader();
+            
             while (drd.Read())
             {
                 cmbFaculty.Items.Add(drd["facultyName"].ToString());
 
                 cmbFacultyDe.Items.Add(drd["facultyName"].ToString());
                 
+            }
+            drd.Close();
+            
+             drd = cmd2.ExecuteReader();
+            while (drd.Read())
+            {
+                cmbDepartment.Items.Add(drd["departmentName"].ToString());
+
+
             }
         }
 
