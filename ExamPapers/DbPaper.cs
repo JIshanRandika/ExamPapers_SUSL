@@ -48,7 +48,7 @@ namespace ExamPapers
             cmd.Parameters.Add("@year", MySqlDbType.VarChar).Value = paper.year;
             cmd.Parameters.Add("@qty", MySqlDbType.VarChar).Value = paper.qty;
             cmd.Parameters.Add("@status", MySqlDbType.VarChar).Value = paper.status;
-            cmd.Parameters.Add("@degreeName", MySqlDbType.VarChar).Value = paper.status;
+            cmd.Parameters.Add("@degreeName", MySqlDbType.VarChar).Value = paper.degreeName;
 
             try
             {

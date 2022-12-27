@@ -749,7 +749,26 @@ namespace ExamPapers
 
         private void cmbSearchDepartment_SelectedIndexChanged(object sender, EventArgs e)
         {
-              DbPaper.DisplayAndSearch("SELECT ID," +
+            cmbSearchDegree.Items.Clear();
+
+
+            string query2 = "select degreeName from degree WHERE departmentName = '" + cmbSearchDepartment.Text.ToString() + "'";
+            MySql.Data.MySqlClient.MySqlConnection con = DbPaper.GetConnection();
+            MySql.Data.MySqlClient.MySqlCommand cmd2 = new MySql.Data.MySqlClient.MySqlCommand(query2, con);
+
+            cmd2.CommandText = query2;
+            //con.Open(); 
+            MySql.Data.MySqlClient.MySqlDataReader drd = cmd2.ExecuteReader();
+
+
+            while (drd.Read())
+            {
+                cmbSearchDegree.Items.Add(drd["degreeName"].ToString());
+
+
+            }
+
+            DbPaper.DisplayAndSearch("SELECT ID," +
                "paperSetCode, " +
                "subjectCode, " +
                "subjectName," +
@@ -766,6 +785,8 @@ namespace ExamPapers
                "qty," +
                "status," +
                "degreeName FROM paper WHERE department LIKE '%" + cmbSearchDepartment.Text + "%'", dtDataGridView);
+
+
         }
 
         private void cmbSearchSemester_SelectedIndexChanged(object sender, EventArgs e)
@@ -980,6 +1001,7 @@ namespace ExamPapers
 
         private void btnExport_Click(object sender, EventArgs e)
         {
+           
             //Creating DataTable
             DataTable dt = new DataTable();
 
@@ -1001,7 +1023,14 @@ namespace ExamPapers
             }
 
             //Exporting to Excel
-            string folderPath = "C:\\Users\\ASUS\\Desktop\\";
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+            string folderPath="a";
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                folderPath = folderBrowserDialog.SelectedPath;
+
+            }
+            //string folderPath = "C:\\Users\\ASUS\\Desktop\\";
             if (!Directory.Exists(folderPath))
             {
                 Directory.CreateDirectory(folderPath);
@@ -1009,7 +1038,7 @@ namespace ExamPapers
             using (XLWorkbook wb = new XLWorkbook())
             {
                 wb.Worksheets.Add(dt, "Customers");
-                wb.SaveAs(folderPath + "DataGridViewExport.xlsx");
+                wb.SaveAs(folderPath + "\\DataGridViewExport.xlsx");
             }
         }
 
@@ -1022,6 +1051,27 @@ namespace ExamPapers
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void cmbSearchDegree_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DbPaper.DisplayAndSearch("SELECT ID," +
+               "paperSetCode, " +
+               "subjectCode, " +
+               "subjectName," +
+               "medium," +
+               "faculty," +
+               "department," +
+               "semester," +
+               "year," +
+               "batchName," +
+               "date," +
+               "rowName," +
+               "columnName," +
+               "side," +
+               "qty," +
+               "status," +
+               "degreeName FROM paper WHERE degreeName LIKE '%" + cmbSearchDegree.Text + "%'", dtDataGridView);
         }
     }
 }
