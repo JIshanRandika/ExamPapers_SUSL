@@ -77,10 +77,6 @@ namespace ExamPapers
         private void Save_Click(object sender, EventArgs e)
         {
 
-            
-
-            
-
             Paper paper = new Paper(
                 paperSetCode.Text.Trim(),
                 subjectCode.Text.Trim(),
@@ -217,7 +213,9 @@ namespace ExamPapers
 
         private void Update_Click(object sender, EventArgs e)
         {
-            Paper paper = new Paper(
+            if (cmbStatus.Text.Trim()=="Available")
+            {
+                Paper paper = new Paper(
                 paperSetCode.Text.Trim(),
                 subjectCode.Text.Trim(),
                 subjectName.Text.Trim(),
@@ -236,9 +234,33 @@ namespace ExamPapers
                 cmbDegree.Text.Trim()
 
                 );
-            DbPaper.UpdatePaper(paper, id);
+                DbPaper.UpdatePaper(paper, id);
+            }
+            if (cmbStatus.Text.Trim() == "Disposed")
+            {
+                Paper paper = new Paper(
+                paperSetCode.Text.Trim(),
+                subjectCode.Text.Trim(),
+                subjectName.Text.Trim(),
+                cmbMedium.Text.Trim(),
+                cmbfaculty.Text.Trim(),
+                cmbDepartment.Text.Trim(),
+                cmbSemester.Text.Trim(),
+                cmbYear.Text.Trim(),
+                batchName.Text.Trim(),
+                date.Text.Trim(),
+                rowName.Text.Trim(),
+                columnName.Text.Trim(),
+                cmbSide.Text.Trim(),
+                qty.Text.Trim(),
+                cmbStatus.Text.Trim()+" - "+disposedDate.Text.Trim(),
+                cmbDegree.Text.Trim()
 
-            Clear();
+                );
+                DbPaper.UpdatePaper(paper, id);
+            }
+
+                Clear();
             Display();
         }
 

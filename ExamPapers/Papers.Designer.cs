@@ -29,8 +29,8 @@ namespace ExamPapers
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Save = new System.Windows.Forms.Button();
             this.dtDataGridView = new System.Windows.Forms.DataGridView();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -66,6 +66,7 @@ namespace ExamPapers
             this.cmbYear = new System.Windows.Forms.ComboBox();
             this.cmbSide = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.disposedDate = new System.Windows.Forms.DateTimePicker();
             this.label30 = new System.Windows.Forms.Label();
             this.cmbDegree = new System.Windows.Forms.ComboBox();
             this.cmbStatus = new System.Windows.Forms.ComboBox();
@@ -96,6 +97,8 @@ namespace ExamPapers
             this.cmbSearchYear = new System.Windows.Forms.ComboBox();
             this.searchBatchName = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cmbSearchDegree = new System.Windows.Forms.ComboBox();
+            this.label31 = new System.Windows.Forms.Label();
             this.cmbSearchStatus = new System.Windows.Forms.ComboBox();
             this.searchSubjectCode = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
@@ -107,8 +110,7 @@ namespace ExamPapers
             this.btnPreYears = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
             this.btnData = new System.Windows.Forms.Button();
-            this.label31 = new System.Windows.Forms.Label();
-            this.cmbSearchDegree = new System.Windows.Forms.ComboBox();
+            this.label32 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -147,11 +149,11 @@ namespace ExamPapers
             // 
             // Delete
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Red;
-            this.Delete.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Red;
+            this.Delete.DefaultCellStyle = dataGridViewCellStyle1;
             this.Delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Delete.HeaderText = "";
             this.Delete.MinimumWidth = 6;
@@ -163,11 +165,11 @@ namespace ExamPapers
             // 
             // Edit
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            this.Edit.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            this.Edit.DefaultCellStyle = dataGridViewCellStyle2;
             this.Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Edit.HeaderText = "";
             this.Edit.MinimumWidth = 6;
@@ -344,7 +346,7 @@ namespace ExamPapers
             // 
             // columnName
             // 
-            this.columnName.Location = new System.Drawing.Point(298, 185);
+            this.columnName.Location = new System.Drawing.Point(294, 185);
             this.columnName.Name = "columnName";
             this.columnName.Size = new System.Drawing.Size(96, 27);
             this.columnName.TabIndex = 29;
@@ -364,7 +366,7 @@ namespace ExamPapers
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(404, 188);
+            this.label2.Location = new System.Drawing.Point(392, 188);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 20);
             this.label2.TabIndex = 30;
@@ -447,7 +449,7 @@ namespace ExamPapers
             // cmbSide
             // 
             this.cmbSide.FormattingEnabled = true;
-            this.cmbSide.Location = new System.Drawing.Point(449, 185);
+            this.cmbSide.Location = new System.Drawing.Point(437, 185);
             this.cmbSide.Name = "cmbSide";
             this.cmbSide.Size = new System.Drawing.Size(134, 28);
             this.cmbSide.TabIndex = 40;
@@ -456,6 +458,8 @@ namespace ExamPapers
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.label32);
+            this.panel1.Controls.Add(this.disposedDate);
             this.panel1.Controls.Add(this.label30);
             this.panel1.Controls.Add(this.cmbDegree);
             this.panel1.Controls.Add(this.cmbStatus);
@@ -473,6 +477,13 @@ namespace ExamPapers
             this.panel1.Size = new System.Drawing.Size(1339, 218);
             this.panel1.TabIndex = 41;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // disposedDate
+            // 
+            this.disposedDate.Location = new System.Drawing.Point(672, 188);
+            this.disposedDate.Name = "disposedDate";
+            this.disposedDate.Size = new System.Drawing.Size(204, 27);
+            this.disposedDate.TabIndex = 72;
             // 
             // label30
             // 
@@ -495,7 +506,7 @@ namespace ExamPapers
             // cmbStatus
             // 
             this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Location = new System.Drawing.Point(710, 171);
+            this.cmbStatus.Location = new System.Drawing.Point(740, 154);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(134, 28);
             this.cmbStatus.TabIndex = 68;
@@ -504,7 +515,7 @@ namespace ExamPapers
             // 
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label28.Location = new System.Drawing.Point(560, 174);
+            this.label28.Location = new System.Drawing.Point(572, 154);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(144, 20);
             this.label28.TabIndex = 68;
@@ -768,6 +779,25 @@ namespace ExamPapers
             this.panel2.Size = new System.Drawing.Size(1339, 236);
             this.panel2.TabIndex = 42;
             // 
+            // cmbSearchDegree
+            // 
+            this.cmbSearchDegree.FormattingEnabled = true;
+            this.cmbSearchDegree.Location = new System.Drawing.Point(1005, 60);
+            this.cmbSearchDegree.Name = "cmbSearchDegree";
+            this.cmbSearchDegree.Size = new System.Drawing.Size(268, 28);
+            this.cmbSearchDegree.TabIndex = 72;
+            this.cmbSearchDegree.SelectedIndexChanged += new System.EventHandler(this.cmbSearchDegree_SelectedIndexChanged);
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label31.Location = new System.Drawing.Point(835, 65);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(131, 20);
+            this.label31.TabIndex = 72;
+            this.label31.Text = "Search By Degree";
+            // 
             // cmbSearchStatus
             // 
             this.cmbSearchStatus.FormattingEnabled = true;
@@ -872,24 +902,15 @@ namespace ExamPapers
             this.btnData.UseVisualStyleBackColor = true;
             this.btnData.Click += new System.EventHandler(this.btnData_Click);
             // 
-            // label31
+            // label32
             // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label31.Location = new System.Drawing.Point(835, 65);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(131, 20);
-            this.label31.TabIndex = 72;
-            this.label31.Text = "Search By Degree";
-            // 
-            // cmbSearchDegree
-            // 
-            this.cmbSearchDegree.FormattingEnabled = true;
-            this.cmbSearchDegree.Location = new System.Drawing.Point(1005, 60);
-            this.cmbSearchDegree.Name = "cmbSearchDegree";
-            this.cmbSearchDegree.Size = new System.Drawing.Size(268, 28);
-            this.cmbSearchDegree.TabIndex = 72;
-            this.cmbSearchDegree.SelectedIndexChanged += new System.EventHandler(this.cmbSearchDegree_SelectedIndexChanged);
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label32.Location = new System.Drawing.Point(578, 193);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(88, 20);
+            this.label32.TabIndex = 73;
+            this.label32.Text = "If Disposed";
             // 
             // Papers
             // 
@@ -1036,5 +1057,7 @@ namespace ExamPapers
         private System.Windows.Forms.ComboBox cmbDegree;
         private System.Windows.Forms.ComboBox cmbSearchDegree;
         private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.DateTimePicker disposedDate;
+        private System.Windows.Forms.Label label32;
     }
 }
