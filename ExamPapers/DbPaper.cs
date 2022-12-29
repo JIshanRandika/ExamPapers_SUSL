@@ -186,6 +186,71 @@ namespace ExamPapers
 
         }
 
+        public static void DisposedAll(Paper paper, string y)
+        {
+            DateTime now = DateTime.Now;
+
+
+            int currentYear = Convert.ToInt32(DateTime.Now.ToString("yyyy")) - Convert.ToInt32(y);
+            string currentYearString = currentYear.ToString();
+
+            string currentDate = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+            string priviousDate = DateTime.Now.ToString(currentYearString + "-MM-dd hh:mm:ss");
+
+            string sql = "UPDATE paper SET " +
+               
+                "status = @status" +
+              
+                " WHERE date BETWEEN '" + priviousDate + "' AND '" + currentDate + "'";
+            MySqlConnection con = GetConnection();
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+            cmd.CommandType = System.Data.CommandType.Text;
+           
+            cmd.Parameters.Add("@status", MySqlDbType.VarChar).Value = paper.status;
+          
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Updated Successfully");
+            }
+
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Paper not update" + ex.Message);
+            }
+            con.Close();
+
+        }
+
+        public static void DisposedAllRange(Paper paper, string from, string to)
+        {
+           
+
+            string sql = "UPDATE paper SET " +
+
+                "status = @status" +
+
+                " WHERE date BETWEEN '" + from + "' AND '" + to + "'";
+            MySqlConnection con = GetConnection();
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+            cmd.CommandType = System.Data.CommandType.Text;
+
+            cmd.Parameters.Add("@status", MySqlDbType.VarChar).Value = paper.status;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Updated Successfully");
+            }
+
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Paper not update" + ex.Message);
+            }
+            con.Close();
+
+        }
+
         public static void UpdateFaculty(Faculty faculty, string id)
         {
             string sql = "UPDATE faculty SET facultyName = @facultyName" +

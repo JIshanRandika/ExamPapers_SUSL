@@ -1077,7 +1077,8 @@ namespace ExamPapers
 
         private void cmbSearchDegree_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DbPaper.DisplayAndSearch("SELECT ID," +
+            DbPaper.DisplayAndSearch(
+                "SELECT ID," +
                "paperSetCode, " +
                "subjectCode, " +
                "subjectName," +
@@ -1094,6 +1095,41 @@ namespace ExamPapers
                "qty," +
                "status," +
                "degreeName FROM paper WHERE degreeName LIKE '%" + cmbSearchDegree.Text + "%'", dtDataGridView);
+        }
+
+        private void btnDisposedAll_Click(object sender, EventArgs e)
+        {
+
+            if (MessageBox.Show("Do you want to disposed all?", "Information", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                Paper paper = new Paper(
+
+                 "Disposed -" + disposedAllDate.Text.Trim()
+
+                );
+                DbPaper.DisposedAll(paper, preYears.Text.Trim());
+                Display();
+            }
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDiposeAllRange_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Do you want to disposed all?", "Information", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                Paper paper = new Paper(
+
+                 "Disposed -" + disposedAllDate.Text.Trim()
+
+                );
+                DbPaper.DisposedAllRange(paper, fromDate.Text.Trim(),toDate.Text.Trim());
+                Display();
+            }
         }
     }
 }

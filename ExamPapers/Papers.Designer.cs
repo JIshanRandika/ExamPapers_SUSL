@@ -29,8 +29,8 @@ namespace ExamPapers
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Save = new System.Windows.Forms.Button();
             this.dtDataGridView = new System.Windows.Forms.DataGridView();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -66,6 +66,7 @@ namespace ExamPapers
             this.cmbYear = new System.Windows.Forms.ComboBox();
             this.cmbSide = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label32 = new System.Windows.Forms.Label();
             this.disposedDate = new System.Windows.Forms.DateTimePicker();
             this.label30 = new System.Windows.Forms.Label();
             this.cmbDegree = new System.Windows.Forms.ComboBox();
@@ -110,11 +111,21 @@ namespace ExamPapers
             this.btnPreYears = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
             this.btnData = new System.Windows.Forms.Button();
-            this.label32 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnDisposedAll = new System.Windows.Forms.Button();
+            this.disposedAllDate = new System.Windows.Forms.DateTimePicker();
+            this.label33 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label34 = new System.Windows.Forms.Label();
+            this.diposeAllDateRange = new System.Windows.Forms.DateTimePicker();
+            this.label35 = new System.Windows.Forms.Label();
+            this.btnDiposeAllRange = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // Save
@@ -138,7 +149,7 @@ namespace ExamPapers
             this.dtDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Delete,
             this.Edit});
-            this.dtDataGridView.Location = new System.Drawing.Point(29, 537);
+            this.dtDataGridView.Location = new System.Drawing.Point(29, 767);
             this.dtDataGridView.Name = "dtDataGridView";
             this.dtDataGridView.ReadOnly = true;
             this.dtDataGridView.RowHeadersWidth = 51;
@@ -149,11 +160,11 @@ namespace ExamPapers
             // 
             // Delete
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Red;
-            this.Delete.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Red;
+            this.Delete.DefaultCellStyle = dataGridViewCellStyle9;
             this.Delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Delete.HeaderText = "";
             this.Delete.MinimumWidth = 6;
@@ -165,11 +176,11 @@ namespace ExamPapers
             // 
             // Edit
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            this.Edit.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            this.Edit.DefaultCellStyle = dataGridViewCellStyle10;
             this.Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Edit.HeaderText = "";
             this.Edit.MinimumWidth = 6;
@@ -477,6 +488,16 @@ namespace ExamPapers
             this.panel1.Size = new System.Drawing.Size(1339, 218);
             this.panel1.TabIndex = 41;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label32.Location = new System.Drawing.Point(578, 193);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(88, 20);
+            this.label32.TabIndex = 73;
+            this.label32.Text = "If Disposed";
             // 
             // disposedDate
             // 
@@ -839,9 +860,9 @@ namespace ExamPapers
             // 
             this.fromDate.CustomFormat = "yyyy-MM-dd hh:mm:ss";
             this.fromDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.fromDate.Location = new System.Drawing.Point(657, 491);
+            this.fromDate.Location = new System.Drawing.Point(136, 20);
             this.fromDate.Name = "fromDate";
-            this.fromDate.Size = new System.Drawing.Size(248, 27);
+            this.fromDate.Size = new System.Drawing.Size(272, 27);
             this.fromDate.TabIndex = 65;
             this.fromDate.ValueChanged += new System.EventHandler(this.fromDate_ValueChanged);
             // 
@@ -849,16 +870,16 @@ namespace ExamPapers
             // 
             this.toDate.CustomFormat = "yyyy-MM-dd hh:mm:ss";
             this.toDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.toDate.Location = new System.Drawing.Point(924, 491);
+            this.toDate.Location = new System.Drawing.Point(136, 53);
             this.toDate.Name = "toDate";
-            this.toDate.Size = new System.Drawing.Size(248, 27);
+            this.toDate.Size = new System.Drawing.Size(272, 27);
             this.toDate.TabIndex = 66;
             // 
             // btnDateRange
             // 
-            this.btnDateRange.Location = new System.Drawing.Point(1191, 489);
+            this.btnDateRange.Location = new System.Drawing.Point(136, 86);
             this.btnDateRange.Name = "btnDateRange";
-            this.btnDateRange.Size = new System.Drawing.Size(129, 29);
+            this.btnDateRange.Size = new System.Drawing.Size(272, 29);
             this.btnDateRange.TabIndex = 67;
             this.btnDateRange.Text = "Date Range";
             this.btnDateRange.UseVisualStyleBackColor = true;
@@ -866,7 +887,7 @@ namespace ExamPapers
             // 
             // preYears
             // 
-            this.preYears.Location = new System.Drawing.Point(376, 493);
+            this.preYears.Location = new System.Drawing.Point(13, 17);
             this.preYears.Name = "preYears";
             this.preYears.Size = new System.Drawing.Size(79, 27);
             this.preYears.TabIndex = 68;
@@ -874,11 +895,11 @@ namespace ExamPapers
             // 
             // btnPreYears
             // 
-            this.btnPreYears.Location = new System.Drawing.Point(461, 491);
+            this.btnPreYears.Location = new System.Drawing.Point(122, 17);
             this.btnPreYears.Name = "btnPreYears";
             this.btnPreYears.Size = new System.Drawing.Size(163, 29);
             this.btnPreYears.TabIndex = 69;
-            this.btnPreYears.Text = "Previous Years";
+            this.btnPreYears.Text = "Previous Years View";
             this.btnPreYears.UseVisualStyleBackColor = true;
             this.btnPreYears.Click += new System.EventHandler(this.btnPreYears_Click);
             // 
@@ -902,29 +923,108 @@ namespace ExamPapers
             this.btnData.UseVisualStyleBackColor = true;
             this.btnData.Click += new System.EventHandler(this.btnData_Click);
             // 
-            // label32
+            // panel3
             // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label32.Location = new System.Drawing.Point(578, 193);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(88, 20);
-            this.label32.TabIndex = 73;
-            this.label32.Text = "If Disposed";
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.btnDisposedAll);
+            this.panel3.Controls.Add(this.disposedAllDate);
+            this.panel3.Controls.Add(this.preYears);
+            this.panel3.Controls.Add(this.btnPreYears);
+            this.panel3.Location = new System.Drawing.Point(29, 544);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(389, 171);
+            this.panel3.TabIndex = 72;
+            // 
+            // btnDisposedAll
+            // 
+            this.btnDisposedAll.Location = new System.Drawing.Point(13, 93);
+            this.btnDisposedAll.Name = "btnDisposedAll";
+            this.btnDisposedAll.Size = new System.Drawing.Size(272, 29);
+            this.btnDisposedAll.TabIndex = 73;
+            this.btnDisposedAll.Text = "Disposed All";
+            this.btnDisposedAll.UseVisualStyleBackColor = true;
+            this.btnDisposedAll.Click += new System.EventHandler(this.btnDisposedAll_Click);
+            // 
+            // disposedAllDate
+            // 
+            this.disposedAllDate.Location = new System.Drawing.Point(13, 60);
+            this.disposedAllDate.Name = "disposedAllDate";
+            this.disposedAllDate.Size = new System.Drawing.Size(272, 27);
+            this.disposedAllDate.TabIndex = 74;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label33.Location = new System.Drawing.Point(22, 25);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(46, 20);
+            this.label33.TabIndex = 73;
+            this.label33.Text = "From";
+            // 
+            // panel4
+            // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel4.Controls.Add(this.btnDiposeAllRange);
+            this.panel4.Controls.Add(this.label35);
+            this.panel4.Controls.Add(this.diposeAllDateRange);
+            this.panel4.Controls.Add(this.label34);
+            this.panel4.Controls.Add(this.fromDate);
+            this.panel4.Controls.Add(this.btnDateRange);
+            this.panel4.Controls.Add(this.label33);
+            this.panel4.Controls.Add(this.toDate);
+            this.panel4.Location = new System.Drawing.Point(886, 504);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(482, 211);
+            this.panel4.TabIndex = 75;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label34.Location = new System.Drawing.Point(22, 58);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(26, 20);
+            this.label34.TabIndex = 74;
+            this.label34.Text = "To";
+            // 
+            // diposeAllDateRange
+            // 
+            this.diposeAllDateRange.Location = new System.Drawing.Point(136, 129);
+            this.diposeAllDateRange.Name = "diposeAllDateRange";
+            this.diposeAllDateRange.Size = new System.Drawing.Size(272, 27);
+            this.diposeAllDateRange.TabIndex = 75;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label35.Location = new System.Drawing.Point(22, 136);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(101, 20);
+            this.label35.TabIndex = 76;
+            this.label35.Text = "Dispose Date";
+            // 
+            // btnDiposeAllRange
+            // 
+            this.btnDiposeAllRange.Location = new System.Drawing.Point(136, 162);
+            this.btnDiposeAllRange.Name = "btnDiposeAllRange";
+            this.btnDiposeAllRange.Size = new System.Drawing.Size(272, 29);
+            this.btnDiposeAllRange.TabIndex = 75;
+            this.btnDiposeAllRange.Text = "Disposed All";
+            this.btnDiposeAllRange.UseVisualStyleBackColor = true;
+            this.btnDiposeAllRange.Click += new System.EventHandler(this.btnDiposeAllRange_Click);
             // 
             // Papers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(230)))));
-            this.ClientSize = new System.Drawing.Size(1418, 760);
+            this.ClientSize = new System.Drawing.Size(1418, 1000);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.btnData);
             this.Controls.Add(this.btnExport);
-            this.Controls.Add(this.btnPreYears);
-            this.Controls.Add(this.preYears);
-            this.Controls.Add(this.btnDateRange);
-            this.Controls.Add(this.toDate);
-            this.Controls.Add(this.fromDate);
             this.Controls.Add(this.columnName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.searchBatchName);
@@ -973,6 +1073,10 @@ namespace ExamPapers
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1059,5 +1163,14 @@ namespace ExamPapers
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.DateTimePicker disposedDate;
         private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button btnDisposedAll;
+        private System.Windows.Forms.DateTimePicker disposedAllDate;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button btnDiposeAllRange;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.DateTimePicker diposeAllDateRange;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label33;
     }
 }

@@ -42,5 +42,14 @@ namespace ExamPapers
             this.status = status;
             this.degreeName = degreeName;
         }
+
+        public Paper( string status)
+        {
+            
+            this.status = status;
+            
+        }
+
+
     }
 }
