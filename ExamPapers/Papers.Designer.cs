@@ -98,6 +98,7 @@ namespace ExamPapers
             this.cmbSearchYear = new System.Windows.Forms.ComboBox();
             this.searchBatchName = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.cmbSearchDegree = new System.Windows.Forms.ComboBox();
             this.label31 = new System.Windows.Forms.Label();
             this.cmbSearchStatus = new System.Windows.Forms.ComboBox();
@@ -777,6 +778,7 @@ namespace ExamPapers
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.btnSearch);
             this.panel2.Controls.Add(this.cmbSearchDegree);
             this.panel2.Controls.Add(this.label31);
             this.panel2.Controls.Add(this.cmbSearchStatus);
@@ -797,8 +799,18 @@ namespace ExamPapers
             this.panel2.Controls.Add(this.label20);
             this.panel2.Location = new System.Drawing.Point(29, 236);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1339, 236);
+            this.panel2.Size = new System.Drawing.Size(1339, 250);
             this.panel2.TabIndex = 42;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(1005, 208);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(125, 29);
+            this.btnSearch.TabIndex = 76;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // cmbSearchDegree
             // 
@@ -859,6 +871,7 @@ namespace ExamPapers
             // 
             // fromDate
             // 
+            this.fromDate.Checked = false;
             this.fromDate.CustomFormat = "yyyy-MM-dd hh:mm:ss";
             this.fromDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.fromDate.Location = new System.Drawing.Point(136, 20);
@@ -1173,5 +1186,6 @@ namespace ExamPapers
         private System.Windows.Forms.DateTimePicker diposeAllDateRange;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Button btnSearch;
     }
 }

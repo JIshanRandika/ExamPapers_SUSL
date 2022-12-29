@@ -948,12 +948,14 @@ namespace ExamPapers
             /*string date = Convert.ToString(DateTime.ParseExact(s, "yyyy-mm-dd hh:mm:ss",
                                    CultureInfo.InvariantCulture));*/
 
-           // MessageBox.Show(fromDate.Text);
+            // MessageBox.Show(fromDate.Text);
 
-            
 
-           // DateTime from = Convert.ToDateTime(fromDate.Text);
+
+            // DateTime from = Convert.ToDateTime(fromDate.Text);
             //string fromdate = Convert.ToString(from);
+
+            MessageBox.Show(fromDate.Text + " - " + toDate.Text);
 
             DbPaper.DisplayAndSearch("SELECT ID," +
              "paperSetCode, " +
@@ -1152,5 +1154,594 @@ namespace ExamPapers
               "status," +
               "degreeName FROM paper WHERE status LIKE '%" + cmbSearchStatus.Text + "%'", dtDataGridView);
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+
+            string query = "SELECT ID, paperSetCode, subjectCode, subjectName, medium, faculty, department, semester, year, batchName, date, rowName, columnName, side, qty, status, degreeName " +
+              "FROM paper " +
+              "WHERE faculty LIKE '% %'";
+
+            if (searchPaperSetCode.Text.Length > 0)
+            {
+                query = query + "&& paperSetCode LIKE '%" + searchPaperSetCode.Text + "%'";
+               
+            }
+            if (searchSubjectCode.Text.Length > 0)
+            {
+                query = query + "&& subjectCode LIKE '%" + searchSubjectCode.Text + "%'";
+            }
+            if (searchSubjectName.Text.Length > 0)
+            {
+                query = query + "&& subjectName LIKE '%" + searchSubjectName.Text + "%'";
+            }
+            if (cmbSearchMedium.Text.Length > 0)
+            {
+                query = query + "&& medium LIKE '%" + cmbSearchMedium.Text + "%'";
+            }
+            if (cmbSearchFaculty.Text.Length > 0)
+            {
+                query = query + "&& faculty LIKE '%" + cmbSearchFaculty.Text + "%'";
+            }
+            if (cmbSearchDepartment.Text.Length > 0)
+            {
+                query = query + "&& department LIKE '%" + cmbSearchDepartment.Text + "%'";
+            }
+            if (cmbSearchSemester.Text.Length > 0)
+            {
+                query = query + "&& semester LIKE '%" + cmbSearchSemester.Text + "%'";
+            }
+            if (cmbSearchYear.Text.Length > 0)
+            {
+                query = query + "&& year LIKE '%" + cmbSearchYear.Text + "%'";
+            }
+            if (searchBatchName.Text.Length > 0)
+            {
+                query = query + "&& batchName LIKE '%" + searchBatchName.Text + "%'";
+            }
+            if (searchBatchName.Text.Length > 0)
+            {
+                query = query + "&& date LIKE '%" + txtSearch.Text + "%'";
+            }
+            if (searchRow.Text.Length > 0)
+            {
+                query = query + "&& rowName LIKE '%" + searchRow.Text + "%'";
+            }
+            if (searchColumn.Text.Length > 0)
+            {
+                query = query + "&& columnName LIKE '%" + searchColumn.Text + "%'";
+            }
+            if (cmbSearchSide.Text.Length > 0)
+            {
+                query = query + "&& side LIKE '%" + cmbSearchSide.Text + "%'";
+            }
+            if (cmbSearchStatus.Text.Length > 0)
+            {
+                query = query + "&& status LIKE '%" + cmbSearchStatus.Text + "%'";
+            }
+            if (cmbSearchDegree.Text.Length > 0)
+            {
+                query = query + "&& degreeName LIKE '%" + cmbSearchDegree.Text + "%'";
+            }
+
+            DateTime now = DateTime.Now;
+
+
+            int currentYear = Convert.ToInt32(DateTime.Now.ToString("yyyy")) - Convert.ToInt32(preYears.Text);
+            string currentYearString = currentYear.ToString();
+
+            string currentDate = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+            string priviousDate = DateTime.Now.ToString(currentYearString + "-MM-dd hh:mm:ss");
+
+            if (preYears.Text.Length > 0)
+            {
+                query = query + "&& date BETWEEN '" + priviousDate + "' AND '" + currentDate + "'";
+            }
+
+
+            if (fromDate.Text.Length > 0 && toDate.Text.Length > 0)
+            {
+                query = query + "&& date BETWEEN '" + fromDate.Text + "' AND '" + toDate.Text + "'";
+            }
+
+
+
+
+            DbPaper.DisplayAndSearch(query, dtDataGridView);
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        /*  if (
+              searchPaperSetCode.Text.Length>0 &
+
+              searchSubjectName.Text.Length > 0 &
+              searchSubjectCode.Text.Length > 0 &
+              cmbSearchMedium.Text.Length > 0 &
+              cmbSearchFaculty.Text.Length > 0 &
+
+              cmbSearchDepartment.Text.Length > 0 &
+              cmbSearchDegree.Text.Length > 0 &
+              cmbSearchSemester.Text.Length > 0 &
+              searchBatchName.Text.Length > 0 &
+              txtSearch.Text.Length > 0 &
+
+              cmbSearchYear.Text.Length > 0 &
+              searchRow.Text.Length > 0 &
+              searchColumn.Text.Length > 0 &
+              cmbSearchSide.Text.Length > 0 &
+              cmbSearchStatus.Text.Length > 0 
+
+              )
+          {
+              MessageBox.Show("Okay");
+          }
+          else if(
+
+              searchPaperSetCode.Text.Length > 0 &
+
+
+              searchSubjectCode.Text.Length > 0 &
+              cmbSearchMedium.Text.Length > 0 &
+              cmbSearchFaculty.Text.Length > 0 &
+
+              cmbSearchDepartment.Text.Length > 0 &
+              cmbSearchDegree.Text.Length > 0 &
+              cmbSearchSemester.Text.Length > 0 &
+              searchBatchName.Text.Length > 0 &
+              txtSearch.Text.Length > 0 &
+
+              cmbSearchYear.Text.Length > 0 &
+              searchRow.Text.Length > 0 &
+              searchColumn.Text.Length > 0 &
+              cmbSearchSide.Text.Length > 0 &
+              cmbSearchStatus.Text.Length > 0
+
+              )
+          {
+              MessageBox.Show("No");
+          }
+          else if (
+
+              searchPaperSetCode.Text.Length > 0 &
+
+
+              cmbSearchMedium.Text.Length > 0 &
+              cmbSearchFaculty.Text.Length > 0 &
+
+              cmbSearchDepartment.Text.Length > 0 &
+              cmbSearchDegree.Text.Length > 0 &
+              cmbSearchSemester.Text.Length > 0 &
+              searchBatchName.Text.Length > 0 &
+              txtSearch.Text.Length > 0 &
+
+              cmbSearchYear.Text.Length > 0 &
+              searchRow.Text.Length > 0 &
+              searchColumn.Text.Length > 0 &
+              cmbSearchSide.Text.Length > 0 &
+              cmbSearchStatus.Text.Length > 0
+
+              )
+          {
+              MessageBox.Show("No");
+          }
+          else if (
+
+              searchPaperSetCode.Text.Length > 0 &
+
+
+              cmbSearchFaculty.Text.Length > 0 &
+
+              cmbSearchDepartment.Text.Length > 0 &
+              cmbSearchDegree.Text.Length > 0 &
+              cmbSearchSemester.Text.Length > 0 &
+              searchBatchName.Text.Length > 0 &
+              txtSearch.Text.Length > 0 &
+
+              cmbSearchYear.Text.Length > 0 &
+              searchRow.Text.Length > 0 &
+              searchColumn.Text.Length > 0 &
+              cmbSearchSide.Text.Length > 0 &
+              cmbSearchStatus.Text.Length > 0
+
+              )
+          {
+              MessageBox.Show("No");
+          }
+          else if (
+
+              searchPaperSetCode.Text.Length > 0 &
+
+
+              cmbSearchDepartment.Text.Length > 0 &
+              cmbSearchDegree.Text.Length > 0 &
+              cmbSearchSemester.Text.Length > 0 &
+              searchBatchName.Text.Length > 0 &
+              txtSearch.Text.Length > 0 &
+
+              cmbSearchYear.Text.Length > 0 &
+              searchRow.Text.Length > 0 &
+              searchColumn.Text.Length > 0 &
+              cmbSearchSide.Text.Length > 0 &
+              cmbSearchStatus.Text.Length > 0
+              )
+          {
+              MessageBox.Show("No");
+          }
+          else if (
+
+              searchPaperSetCode.Text.Length > 0 &
+
+
+              cmbSearchDegree.Text.Length > 0 &
+              cmbSearchSemester.Text.Length > 0 &
+              searchBatchName.Text.Length > 0 &
+              txtSearch.Text.Length > 0 &
+
+              cmbSearchYear.Text.Length > 0 &
+              searchRow.Text.Length > 0 &
+              searchColumn.Text.Length > 0 &
+              cmbSearchSide.Text.Length > 0 &
+              cmbSearchStatus.Text.Length > 0
+              )
+          {
+              MessageBox.Show("No");
+          }
+          else if (
+
+              searchPaperSetCode.Text.Length > 0 &
+
+
+              cmbSearchSemester.Text.Length > 0 &
+              searchBatchName.Text.Length > 0 &
+              txtSearch.Text.Length > 0 &
+
+              cmbSearchYear.Text.Length > 0 &
+              searchRow.Text.Length > 0 &
+              searchColumn.Text.Length > 0 &
+              cmbSearchSide.Text.Length > 0 &
+              cmbSearchStatus.Text.Length > 0
+              )
+          {
+              MessageBox.Show("No");
+          }
+          else if (
+
+              searchPaperSetCode.Text.Length > 0 &
+
+
+              searchBatchName.Text.Length > 0 &
+              txtSearch.Text.Length > 0 &
+
+              cmbSearchYear.Text.Length > 0 &
+              searchRow.Text.Length > 0 &
+              searchColumn.Text.Length > 0 &
+              cmbSearchSide.Text.Length > 0 &
+              cmbSearchStatus.Text.Length > 0
+              )
+          {
+              MessageBox.Show("No");
+          }
+          else if (
+
+              searchPaperSetCode.Text.Length > 0 &
+
+
+              txtSearch.Text.Length > 0 &
+
+              cmbSearchYear.Text.Length > 0 &
+              searchRow.Text.Length > 0 &
+              searchColumn.Text.Length > 0 &
+              cmbSearchSide.Text.Length > 0 &
+              cmbSearchStatus.Text.Length > 0
+              )
+          {
+              MessageBox.Show("No");
+          }
+
+          else if (
+
+              searchPaperSetCode.Text.Length > 0 &
+
+
+              cmbSearchYear.Text.Length > 0 &
+              searchRow.Text.Length > 0 &
+              searchColumn.Text.Length > 0 &
+              cmbSearchSide.Text.Length > 0 &
+              cmbSearchStatus.Text.Length > 0 
+              )
+          {
+              MessageBox.Show("No");
+          }
+          else if (
+
+              searchPaperSetCode.Text.Length > 0 &
+
+
+              searchRow.Text.Length > 0 &
+              searchColumn.Text.Length > 0 &
+              cmbSearchSide.Text.Length > 0 &
+              cmbSearchStatus.Text.Length > 0
+              )
+          {
+              MessageBox.Show("No");
+          }
+          else if (
+
+              searchPaperSetCode.Text.Length > 0 &
+
+
+              searchColumn.Text.Length > 0 &
+              cmbSearchSide.Text.Length > 0 &
+              cmbSearchStatus.Text.Length > 0
+              )
+          {
+              MessageBox.Show("No");
+          }
+          else if (
+
+              searchPaperSetCode.Text.Length > 0 &
+
+              cmbSearchSide.Text.Length > 0 &
+              cmbSearchStatus.Text.Length > 0
+              )
+          {
+              MessageBox.Show("No");
+          }
+          else if (
+
+              searchPaperSetCode.Text.Length > 0 &
+
+              cmbSearchStatus.Text.Length > 0
+              )
+          {
+              MessageBox.Show("No");
+          }
+          else if (
+
+              searchPaperSetCode.Text.Length > 0
+              )
+          {
+              MessageBox.Show("No");
+          }
+          else if (
+               searchSubjectName.Text.Length > 0 &
+
+              searchPaperSetCode.Text.Length > 0 &
+              searchSubjectCode.Text.Length > 0 &
+              cmbSearchMedium.Text.Length > 0 &
+              cmbSearchFaculty.Text.Length > 0 &
+
+              cmbSearchDepartment.Text.Length > 0 &
+              cmbSearchDegree.Text.Length > 0 &
+              cmbSearchSemester.Text.Length > 0 &
+              searchBatchName.Text.Length > 0 &
+              txtSearch.Text.Length > 0 &
+
+              cmbSearchYear.Text.Length > 0 &
+              searchRow.Text.Length > 0 &
+              searchColumn.Text.Length > 0 &
+              cmbSearchSide.Text.Length > 0 &
+              cmbSearchStatus.Text.Length > 0
+              )
+          {
+              MessageBox.Show("No");
+          }
+          else if (
+              searchSubjectName.Text.Length > 0 &
+
+
+             searchSubjectCode.Text.Length > 0 &
+             cmbSearchMedium.Text.Length > 0 &
+             cmbSearchFaculty.Text.Length > 0 &
+
+             cmbSearchDepartment.Text.Length > 0 &
+             cmbSearchDegree.Text.Length > 0 &
+             cmbSearchSemester.Text.Length > 0 &
+             searchBatchName.Text.Length > 0 &
+             txtSearch.Text.Length > 0 &
+
+             cmbSearchYear.Text.Length > 0 &
+             searchRow.Text.Length > 0 &
+             searchColumn.Text.Length > 0 &
+             cmbSearchSide.Text.Length > 0 &
+             cmbSearchStatus.Text.Length > 0
+             )
+          {
+              MessageBox.Show("No");
+          }
+          else if (
+              searchSubjectName.Text.Length > 0 &
+
+             cmbSearchMedium.Text.Length > 0 &
+             cmbSearchFaculty.Text.Length > 0 &
+
+             cmbSearchDepartment.Text.Length > 0 &
+             cmbSearchDegree.Text.Length > 0 &
+             cmbSearchSemester.Text.Length > 0 &
+             searchBatchName.Text.Length > 0 &
+             txtSearch.Text.Length > 0 &
+
+             cmbSearchYear.Text.Length > 0 &
+             searchRow.Text.Length > 0 &
+             searchColumn.Text.Length > 0 &
+             cmbSearchSide.Text.Length > 0 &
+             cmbSearchStatus.Text.Length > 0
+             )
+          {
+              MessageBox.Show("No");
+          }
+          else if (
+              searchSubjectName.Text.Length > 0 &
+
+             cmbSearchFaculty.Text.Length > 0 &
+
+             cmbSearchDepartment.Text.Length > 0 &
+             cmbSearchDegree.Text.Length > 0 &
+             cmbSearchSemester.Text.Length > 0 &
+             searchBatchName.Text.Length > 0 &
+             txtSearch.Text.Length > 0 &
+
+             cmbSearchYear.Text.Length > 0 &
+             searchRow.Text.Length > 0 &
+             searchColumn.Text.Length > 0 &
+             cmbSearchSide.Text.Length > 0 &
+             cmbSearchStatus.Text.Length > 0
+             )
+          {
+              MessageBox.Show("No");
+          }
+          else if (
+              searchSubjectName.Text.Length > 0 &
+
+
+             cmbSearchDepartment.Text.Length > 0 &
+             cmbSearchDegree.Text.Length > 0 &
+             cmbSearchSemester.Text.Length > 0 &
+             searchBatchName.Text.Length > 0 &
+             txtSearch.Text.Length > 0 &
+
+             cmbSearchYear.Text.Length > 0 &
+             searchRow.Text.Length > 0 &
+             searchColumn.Text.Length > 0 &
+             cmbSearchSide.Text.Length > 0 &
+             cmbSearchStatus.Text.Length > 0
+             )
+          {
+              MessageBox.Show("No");
+          }
+          else if (
+              searchSubjectName.Text.Length > 0 &
+
+             cmbSearchDegree.Text.Length > 0 &
+             cmbSearchSemester.Text.Length > 0 &
+             searchBatchName.Text.Length > 0 &
+             txtSearch.Text.Length > 0 &
+
+             cmbSearchYear.Text.Length > 0 &
+             searchRow.Text.Length > 0 &
+             searchColumn.Text.Length > 0 &
+             cmbSearchSide.Text.Length > 0 &
+             cmbSearchStatus.Text.Length > 0
+             )
+          {
+              MessageBox.Show("No");
+          }
+          else if (
+              searchSubjectName.Text.Length > 0 &
+
+             cmbSearchSemester.Text.Length > 0 &
+             searchBatchName.Text.Length > 0 &
+             txtSearch.Text.Length > 0 &
+
+             cmbSearchYear.Text.Length > 0 &
+             searchRow.Text.Length > 0 &
+             searchColumn.Text.Length > 0 &
+             cmbSearchSide.Text.Length > 0 &
+             cmbSearchStatus.Text.Length > 0
+             )
+          {
+              MessageBox.Show("No");
+          }
+          else if (
+              searchSubjectName.Text.Length > 0 &
+
+             searchBatchName.Text.Length > 0 &
+             txtSearch.Text.Length > 0 &
+
+             cmbSearchYear.Text.Length > 0 &
+             searchRow.Text.Length > 0 &
+             searchColumn.Text.Length > 0 &
+             cmbSearchSide.Text.Length > 0 &
+             cmbSearchStatus.Text.Length > 0
+             )
+          {
+              MessageBox.Show("No");
+          }
+
+          else if (
+              searchSubjectName.Text.Length > 0 &
+
+             txtSearch.Text.Length > 0 &
+
+             cmbSearchYear.Text.Length > 0 &
+             searchRow.Text.Length > 0 &
+             searchColumn.Text.Length > 0 &
+             cmbSearchSide.Text.Length > 0 &
+             cmbSearchStatus.Text.Length > 0
+             )
+          {
+              MessageBox.Show("No");
+          }
+          else if (
+              searchSubjectName.Text.Length > 0 &
+
+             cmbSearchYear.Text.Length > 0 &
+             searchRow.Text.Length > 0 &
+             searchColumn.Text.Length > 0 &
+             cmbSearchSide.Text.Length > 0 &
+             cmbSearchStatus.Text.Length > 0
+             )
+          {
+              MessageBox.Show("No");
+          }
+          else if (
+              searchSubjectName.Text.Length > 0 &
+
+             searchRow.Text.Length > 0 &
+             searchColumn.Text.Length > 0 &
+             cmbSearchSide.Text.Length > 0 &
+             cmbSearchStatus.Text.Length > 0
+             )
+          {
+              MessageBox.Show("No");
+          }
+          else if (
+              searchSubjectName.Text.Length > 0 &
+
+             searchColumn.Text.Length > 0 &
+             cmbSearchSide.Text.Length > 0 &
+             cmbSearchStatus.Text.Length > 0
+             )
+          {
+              MessageBox.Show("No");
+          }
+          else if (
+              searchSubjectName.Text.Length > 0 &
+
+             cmbSearchSide.Text.Length > 0 &
+             cmbSearchStatus.Text.Length > 0
+             )
+          {
+              MessageBox.Show("No");
+          }
+          else if (
+              searchSubjectName.Text.Length > 0 &
+
+             cmbSearchStatus.Text.Length > 0
+             )
+          {
+              MessageBox.Show("No");
+          }
+          else if (
+              searchSubjectName.Text.Length > 0 
+             )
+          {
+              MessageBox.Show("No");
+          }
+          else
+          {
+
+          }*/
+    }
     }
 }
