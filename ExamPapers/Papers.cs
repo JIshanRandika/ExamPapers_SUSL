@@ -1131,5 +1131,26 @@ namespace ExamPapers
                 Display();
             }
         }
+
+        private void cmbSearchStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DbPaper.DisplayAndSearch("SELECT ID," +
+            "paperSetCode, " +
+            "subjectCode, " +
+            "subjectName," +
+            "medium," +
+            "faculty," +
+            "department," +
+            "semester," +
+            "year," +
+            "batchName," +
+            "date," +
+            "rowName," +
+            "columnName," +
+             "side," +
+              "qty," +
+              "status," +
+              "degreeName FROM paper WHERE status LIKE '%" + cmbSearchStatus.Text + "%'", dtDataGridView);
+        }
     }
 }

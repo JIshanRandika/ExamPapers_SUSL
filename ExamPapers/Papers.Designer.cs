@@ -29,8 +29,8 @@ namespace ExamPapers
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Save = new System.Windows.Forms.Button();
             this.dtDataGridView = new System.Windows.Forms.DataGridView();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -116,10 +116,10 @@ namespace ExamPapers
             this.disposedAllDate = new System.Windows.Forms.DateTimePicker();
             this.label33 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label34 = new System.Windows.Forms.Label();
-            this.diposeAllDateRange = new System.Windows.Forms.DateTimePicker();
-            this.label35 = new System.Windows.Forms.Label();
             this.btnDiposeAllRange = new System.Windows.Forms.Button();
+            this.label35 = new System.Windows.Forms.Label();
+            this.diposeAllDateRange = new System.Windows.Forms.DateTimePicker();
+            this.label34 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -160,11 +160,11 @@ namespace ExamPapers
             // 
             // Delete
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Red;
-            this.Delete.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Red;
+            this.Delete.DefaultCellStyle = dataGridViewCellStyle1;
             this.Delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Delete.HeaderText = "";
             this.Delete.MinimumWidth = 6;
@@ -176,11 +176,11 @@ namespace ExamPapers
             // 
             // Edit
             // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            this.Edit.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            this.Edit.DefaultCellStyle = dataGridViewCellStyle2;
             this.Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Edit.HeaderText = "";
             this.Edit.MinimumWidth = 6;
@@ -826,6 +826,7 @@ namespace ExamPapers
             this.cmbSearchStatus.Name = "cmbSearchStatus";
             this.cmbSearchStatus.Size = new System.Drawing.Size(136, 28);
             this.cmbSearchStatus.TabIndex = 70;
+            this.cmbSearchStatus.SelectedIndexChanged += new System.EventHandler(this.cmbSearchStatus_SelectedIndexChanged);
             // 
             // searchSubjectCode
             // 
@@ -978,22 +979,15 @@ namespace ExamPapers
             this.panel4.Size = new System.Drawing.Size(482, 211);
             this.panel4.TabIndex = 75;
             // 
-            // label34
+            // btnDiposeAllRange
             // 
-            this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label34.Location = new System.Drawing.Point(22, 58);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(26, 20);
-            this.label34.TabIndex = 74;
-            this.label34.Text = "To";
-            // 
-            // diposeAllDateRange
-            // 
-            this.diposeAllDateRange.Location = new System.Drawing.Point(136, 129);
-            this.diposeAllDateRange.Name = "diposeAllDateRange";
-            this.diposeAllDateRange.Size = new System.Drawing.Size(272, 27);
-            this.diposeAllDateRange.TabIndex = 75;
+            this.btnDiposeAllRange.Location = new System.Drawing.Point(136, 162);
+            this.btnDiposeAllRange.Name = "btnDiposeAllRange";
+            this.btnDiposeAllRange.Size = new System.Drawing.Size(272, 29);
+            this.btnDiposeAllRange.TabIndex = 75;
+            this.btnDiposeAllRange.Text = "Disposed All";
+            this.btnDiposeAllRange.UseVisualStyleBackColor = true;
+            this.btnDiposeAllRange.Click += new System.EventHandler(this.btnDiposeAllRange_Click);
             // 
             // label35
             // 
@@ -1005,15 +999,22 @@ namespace ExamPapers
             this.label35.TabIndex = 76;
             this.label35.Text = "Dispose Date";
             // 
-            // btnDiposeAllRange
+            // diposeAllDateRange
             // 
-            this.btnDiposeAllRange.Location = new System.Drawing.Point(136, 162);
-            this.btnDiposeAllRange.Name = "btnDiposeAllRange";
-            this.btnDiposeAllRange.Size = new System.Drawing.Size(272, 29);
-            this.btnDiposeAllRange.TabIndex = 75;
-            this.btnDiposeAllRange.Text = "Disposed All";
-            this.btnDiposeAllRange.UseVisualStyleBackColor = true;
-            this.btnDiposeAllRange.Click += new System.EventHandler(this.btnDiposeAllRange_Click);
+            this.diposeAllDateRange.Location = new System.Drawing.Point(136, 129);
+            this.diposeAllDateRange.Name = "diposeAllDateRange";
+            this.diposeAllDateRange.Size = new System.Drawing.Size(272, 27);
+            this.diposeAllDateRange.TabIndex = 75;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label34.Location = new System.Drawing.Point(22, 58);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(26, 20);
+            this.label34.TabIndex = 74;
+            this.label34.Text = "To";
             // 
             // Papers
             // 
