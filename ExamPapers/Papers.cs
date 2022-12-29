@@ -955,25 +955,103 @@ namespace ExamPapers
             // DateTime from = Convert.ToDateTime(fromDate.Text);
             //string fromdate = Convert.ToString(from);
 
-            MessageBox.Show(fromDate.Text + " - " + toDate.Text);
+            /* MessageBox.Show(fromDate.Text + " - " + toDate.Text);
 
-            DbPaper.DisplayAndSearch("SELECT ID," +
-             "paperSetCode, " +
-             "subjectCode, " +
-             "subjectName," +
-             "medium," +
-             "faculty," +
-             "department," +
-             "semester," +
-             "year," +
-             "batchName," +
-             "date," +
-             "rowName," +
-             "columnName," +
-             "side," +
-               "qty," +
-               "status," +
-               "degreeName FROM paper WHERE date BETWEEN '" + fromDate.Text +"' AND '" + toDate.Text + "'", dtDataGridView);
+             DbPaper.DisplayAndSearch("SELECT ID," +
+              "paperSetCode, " +
+              "subjectCode, " +
+              "subjectName," +
+              "medium," +
+              "faculty," +
+              "department," +
+              "semester," +
+              "year," +
+              "batchName," +
+              "date," +
+              "rowName," +
+              "columnName," +
+              "side," +
+                "qty," +
+                "status," +
+                "degreeName FROM paper WHERE date BETWEEN '" + fromDate.Text +"' AND '" + toDate.Text + "'", dtDataGridView);*/
+
+            string query = "SELECT ID, paperSetCode, subjectCode, subjectName, medium, faculty, department, semester, year, batchName, date, rowName, columnName, side, qty, status, degreeName " +
+              "FROM paper " +
+              "WHERE faculty LIKE '% %'";
+
+            if (searchPaperSetCode.Text.Length > 0)
+            {
+                query = query + "&& paperSetCode LIKE '%" + searchPaperSetCode.Text + "%'";
+
+            }
+            if (searchSubjectCode.Text.Length > 0)
+            {
+                query = query + "&& subjectCode LIKE '%" + searchSubjectCode.Text + "%'";
+            }
+            if (searchSubjectName.Text.Length > 0)
+            {
+                query = query + "&& subjectName LIKE '%" + searchSubjectName.Text + "%'";
+            }
+            if (cmbSearchMedium.Text.Length > 0)
+            {
+                query = query + "&& medium LIKE '%" + cmbSearchMedium.Text + "%'";
+            }
+            if (cmbSearchFaculty.Text.Length > 0)
+            {
+                query = query + "&& faculty LIKE '%" + cmbSearchFaculty.Text + "%'";
+            }
+            if (cmbSearchDepartment.Text.Length > 0)
+            {
+                query = query + "&& department LIKE '%" + cmbSearchDepartment.Text + "%'";
+            }
+            if (cmbSearchSemester.Text.Length > 0)
+            {
+                query = query + "&& semester LIKE '%" + cmbSearchSemester.Text + "%'";
+            }
+            if (cmbSearchYear.Text.Length > 0)
+            {
+                query = query + "&& year LIKE '%" + cmbSearchYear.Text + "%'";
+            }
+            if (searchBatchName.Text.Length > 0)
+            {
+                query = query + "&& batchName LIKE '%" + searchBatchName.Text + "%'";
+            }
+            if (searchBatchName.Text.Length > 0)
+            {
+                query = query + "&& date LIKE '%" + txtSearch.Text + "%'";
+            }
+            if (searchRow.Text.Length > 0)
+            {
+                query = query + "&& rowName LIKE '%" + searchRow.Text + "%'";
+            }
+            if (searchColumn.Text.Length > 0)
+            {
+                query = query + "&& columnName LIKE '%" + searchColumn.Text + "%'";
+            }
+            if (cmbSearchSide.Text.Length > 0)
+            {
+                query = query + "&& side LIKE '%" + cmbSearchSide.Text + "%'";
+            }
+            if (cmbSearchStatus.Text.Length > 0)
+            {
+                query = query + "&& status LIKE '%" + cmbSearchStatus.Text + "%'";
+            }
+            if (cmbSearchDegree.Text.Length > 0)
+            {
+                query = query + "&& degreeName LIKE '%" + cmbSearchDegree.Text + "%'";
+            }
+
+            
+             if (fromDate.Text.Length > 0 && toDate.Text.Length > 0)
+             {
+                 query = query + "&& date BETWEEN '" + fromDate.Text + "' AND '" + toDate.Text + "'";
+             }
+
+
+
+
+            DbPaper.DisplayAndSearch(query, dtDataGridView);
+
         }
 
         private void fromDate_ValueChanged(object sender, EventArgs e)
@@ -993,7 +1071,99 @@ namespace ExamPapers
 
         private void btnPreYears_Click(object sender, EventArgs e)
         {
+            string query = "SELECT ID, paperSetCode, subjectCode, subjectName, medium, faculty, department, semester, year, batchName, date, rowName, columnName, side, qty, status, degreeName " +
+              "FROM paper " +
+              "WHERE faculty LIKE '% %'";
+
+            if (searchPaperSetCode.Text.Length > 0)
+            {
+                query = query + "&& paperSetCode LIKE '%" + searchPaperSetCode.Text + "%'";
+
+            }
+            if (searchSubjectCode.Text.Length > 0)
+            {
+                query = query + "&& subjectCode LIKE '%" + searchSubjectCode.Text + "%'";
+            }
+            if (searchSubjectName.Text.Length > 0)
+            {
+                query = query + "&& subjectName LIKE '%" + searchSubjectName.Text + "%'";
+            }
+            if (cmbSearchMedium.Text.Length > 0)
+            {
+                query = query + "&& medium LIKE '%" + cmbSearchMedium.Text + "%'";
+            }
+            if (cmbSearchFaculty.Text.Length > 0)
+            {
+                query = query + "&& faculty LIKE '%" + cmbSearchFaculty.Text + "%'";
+            }
+            if (cmbSearchDepartment.Text.Length > 0)
+            {
+                query = query + "&& department LIKE '%" + cmbSearchDepartment.Text + "%'";
+            }
+            if (cmbSearchSemester.Text.Length > 0)
+            {
+                query = query + "&& semester LIKE '%" + cmbSearchSemester.Text + "%'";
+            }
+            if (cmbSearchYear.Text.Length > 0)
+            {
+                query = query + "&& year LIKE '%" + cmbSearchYear.Text + "%'";
+            }
+            if (searchBatchName.Text.Length > 0)
+            {
+                query = query + "&& batchName LIKE '%" + searchBatchName.Text + "%'";
+            }
+            if (searchBatchName.Text.Length > 0)
+            {
+                query = query + "&& date LIKE '%" + txtSearch.Text + "%'";
+            }
+            if (searchRow.Text.Length > 0)
+            {
+                query = query + "&& rowName LIKE '%" + searchRow.Text + "%'";
+            }
+            if (searchColumn.Text.Length > 0)
+            {
+                query = query + "&& columnName LIKE '%" + searchColumn.Text + "%'";
+            }
+            if (cmbSearchSide.Text.Length > 0)
+            {
+                query = query + "&& side LIKE '%" + cmbSearchSide.Text + "%'";
+            }
+            if (cmbSearchStatus.Text.Length > 0)
+            {
+                query = query + "&& status LIKE '%" + cmbSearchStatus.Text + "%'";
+            }
+            if (cmbSearchDegree.Text.Length > 0)
+            {
+                query = query + "&& degreeName LIKE '%" + cmbSearchDegree.Text + "%'";
+            }
+
             DateTime now = DateTime.Now;
+
+
+            int currentYear = Convert.ToInt32(DateTime.Now.ToString("yyyy")) - Convert.ToInt32(preYears.Text);
+            string currentYearString = currentYear.ToString();
+
+            string currentDate = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+            string priviousDate = DateTime.Now.ToString(currentYearString + "-MM-dd hh:mm:ss");
+
+            if (preYears.Text.Length > 0)
+            {
+                query = query + "&& date BETWEEN '" + priviousDate + "' AND '" + currentDate + "'";
+            }
+
+
+            /* if (fromDate.Text.Length > 0 && toDate.Text.Length > 0)
+             {
+                 query = query + "&& date BETWEEN '" + fromDate.Text + "' AND '" + toDate.Text + "'";
+             }*/
+
+
+
+
+            DbPaper.DisplayAndSearch(query, dtDataGridView);
+
+
+            /*DateTime now = DateTime.Now;
 
 
             int currentYear = Convert.ToInt32(DateTime.Now.ToString("yyyy"))- Convert.ToInt32(preYears.Text);
@@ -1020,7 +1190,7 @@ namespace ExamPapers
             "side," +
               "qty," +
                "status," +
-               "degreeName FROM paper WHERE date BETWEEN '" + priviousDate + "' AND '" + currentDate + "'", dtDataGridView);
+               "degreeName FROM paper WHERE date BETWEEN '" + priviousDate + "' AND '" + currentDate + "'", dtDataGridView);*/
         }
 
         private void btnExport_Click(object sender, EventArgs e)
@@ -1239,10 +1409,10 @@ namespace ExamPapers
             }
 
 
-            if (fromDate.Text.Length > 0 && toDate.Text.Length > 0)
+           /* if (fromDate.Text.Length > 0 && toDate.Text.Length > 0)
             {
                 query = query + "&& date BETWEEN '" + fromDate.Text + "' AND '" + toDate.Text + "'";
-            }
+            }*/
 
 
 
