@@ -1394,7 +1394,7 @@ namespace ExamPapers
                 query = query + "&& degreeName LIKE '%" + cmbSearchDegree.Text + "%'";
             }
 
-            DateTime now = DateTime.Now;
+            /*DateTime now = DateTime.Now;
 
 
             int currentYear = Convert.ToInt32(DateTime.Now.ToString("yyyy")) - Convert.ToInt32(preYears.Text);
@@ -1406,7 +1406,7 @@ namespace ExamPapers
             if (preYears.Text.Length > 0)
             {
                 query = query + "&& date BETWEEN '" + priviousDate + "' AND '" + currentDate + "'";
-            }
+            }*/
 
 
            /* if (fromDate.Text.Length > 0 && toDate.Text.Length > 0)
